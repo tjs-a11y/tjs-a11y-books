@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Replace DOMAIN with the real Pages address at deploy. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://tjs-a11y.github.io/tjs-a11y-books/</loc></url>
+  <url><loc>https://tjs-a11y.github.io/tjs-a11y-books/crypto/</loc></url>
+  <url><loc>https://tjs-a11y.github.io/tjs-a11y-books/kitchen/</loc></url>
+</urlset>

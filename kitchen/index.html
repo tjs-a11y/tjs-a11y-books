@@ -1,0 +1,161 @@
+<!doctype html>
+<!--
+  Bookshelf page for the pen-name books (Kaelee Porteour; Mary Elizabeth). PRIVATE DRAFT, not published.
+  HOSTING NEEDED: this page has no home yet. It needs a CEO decision, for example a new public repo
+  with GitHub Pages switched on (it can share a repo with the LiveWire Money page), and optionally a domain.
+  Separate brand: never link it from Quickwell, and never name the holding company here.
+  Book data: Books2Read universal links, Apple Books and Barnes & Noble store listings, captured by staff
+  on 2026-10-14 (launchpad/catalog-check/books.json and browse.json). The paperback lines come from the
+  Barnes & Noble listings, which showed "Paperback" for both recipe books.
+  Once hosted, set <link rel="canonical"> and og:url to the real address.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bookshelf: Mindset and Recipe Books</title>
+<meta name="description" content="Mindset Mastery by Kaelee Porteour, plus the Plant Based and Mediterranean Diet Recipes books by Mary Elizabeth. Ebooks, and paperbacks for the cookbooks.">
+<meta name="color-scheme" content="light dark">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Bookshelf">
+<meta property="og:title" content="Bookshelf: Mindset and Recipe Books">
+<meta property="og:description" content="Mindset Mastery by Kaelee Porteour, plus the Plant Based and Mediterranean Diet Recipes books by Mary Elizabeth.">
+<meta property="og:image" content="https://books2read-prod.s3.amazonaws.com/ubl_book_images/book_display_image_4Yxn6Qp">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23f3ece0'/%3E%3Crect x='7' y='7' width='5' height='18' rx='1' fill='%23b4532a'/%3E%3Crect x='14' y='9' width='5' height='16' rx='1' fill='%23557a46'/%3E%3Crect x='21' y='6' width='4' height='19' rx='1' transform='rotate(8 23 15)' fill='%23345a8a'/%3E%3C/svg%3E">
+<style>
+  :root {
+    --bg: #faf6ef; --surface: #fffdf9; --ink: #2a2118; --muted: #6d6152; --line: #e8dfd0;
+    --accent: #b4532a; --accent-ink: #ffffff; --leaf: #557a46; --chip: #f1e9dc; --shadow: 0 1px 2px rgba(60,40,20,.06), 0 10px 28px rgba(60,40,20,.08);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #17130f; --surface: #211b15; --ink: #f2ebe1; --muted: #b7aa98; --line: #3a3027;
+      --accent: #f08a5d; --accent-ink: #1b0f08; --leaf: #8fbf7a; --chip: #2c241c; --shadow: 0 1px 2px rgba(0,0,0,.4), 0 10px 28px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #17130f; --surface: #211b15; --ink: #f2ebe1; --muted: #b7aa98; --line: #3a3027;
+    --accent: #f08a5d; --accent-ink: #1b0f08; --leaf: #8fbf7a; --chip: #2c241c; --shadow: 0 1px 2px rgba(0,0,0,.4), 0 10px 28px rgba(0,0,0,.35);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+  a { color: var(--accent); }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+  .serif { font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif; }
+
+  header { padding: 22px 0 8px; }
+  .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; color: var(--ink); text-decoration: none; font-size: 1.05rem; }
+  .brand svg { width: 28px; height: 28px; }
+  .hero { padding: 36px 0 28px; max-width: 700px; }
+  h1 { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.1; margin: 0 0 14px; font-weight: 600; letter-spacing: -.01em; }
+  .lede { font-size: 1.12rem; color: var(--muted); margin: 0; }
+
+  section.shelf { margin: 32px 0 0; }
+  .shelf-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; border-bottom: 1px solid var(--line); padding-bottom: 8px; margin-bottom: 18px; }
+  .shelf-head h2 { font-size: 1.5rem; margin: 0; font-weight: 600; }
+  .shelf-head span { color: var(--muted); font-size: .95rem; }
+
+  .book { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow); padding: 18px; display: grid; grid-template-columns: 150px 1fr; gap: 22px; margin-bottom: 18px; }
+  .cover { width: 150px; aspect-ratio: 2 / 3; border-radius: 4px 8px 8px 4px; overflow: hidden; background: var(--chip); box-shadow: -3px 0 0 rgba(0,0,0,.08) inset, 0 10px 22px rgba(0,0,0,.22); align-self: start; }
+  .cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .book h3 { font-size: 1.35rem; line-height: 1.2; margin: 0 0 4px; font-weight: 600; }
+  .sub { color: var(--muted); font-style: italic; margin: 0 0 6px; }
+  .meta { font-size: .85rem; color: var(--muted); margin: 0 0 10px; }
+  .desc { margin: 0 0 14px; }
+  .fmt { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 14px; padding: 0; list-style: none; }
+  .fmt li { font-size: .75rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; background: var(--chip); color: var(--muted); border-radius: 6px; padding: 3px 8px; }
+  .fmt li.pb { background: var(--leaf); color: var(--surface); }
+  .actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .btn { display: inline-flex; align-items: center; gap: 6px; background: var(--accent); color: var(--accent-ink); text-decoration: none; font-weight: 700; font-size: .95rem; padding: 10px 16px; border-radius: 10px; }
+  .btn.ghost { background: transparent; color: var(--ink); border: 1px solid var(--line); }
+  .btn:hover { filter: brightness(1.06); }
+  .btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+  @media (max-width: 560px) { .book { grid-template-columns: 104px 1fr; gap: 14px; padding: 14px; } .cover { width: 104px; } .book h3 { font-size: 1.15rem; } }
+
+  .note { margin: 28px 0 0; color: var(--muted); font-size: .92rem; border-left: 3px solid var(--leaf); padding: 4px 0 4px 14px; }
+  footer { border-top: 1px solid var(--line); margin-top: 40px; padding: 22px 0 36px; color: var(--muted); font-size: .88rem; }
+  footer p { margin: 4px 0; }
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Bookshelf","itemListElement":[
+{"@type":"ListItem","position":1,"item":{"@type":"Book","name":"Mindset Mastery","author":{"@type":"Person","name":"Kaelee Porteour"},"bookFormat":"https://schema.org/EBook","image":"https://books2read-prod.s3.amazonaws.com/ubl_book_images/book_display_image_B8QPwAX","url":"https://books2read.com/u/mY9QMW"}},
+{"@type":"ListItem","position":2,"item":{"@type":"Book","name":"Mediterranean Diet Recipes Book","author":{"@type":"Person","name":"Mary Elizabeth"},"bookFormat":["https://schema.org/EBook","https://schema.org/Paperback"],"image":"https://books2read-prod.s3.amazonaws.com/ubl_book_images/book_display_image_4Yxn6Qp","url":"https://books2read.com/u/4jo1Xo"}},
+{"@type":"ListItem","position":3,"item":{"@type":"Book","name":"Plant Based Diet Recipes Book","author":{"@type":"Person","name":"Mary Elizabeth"},"bookFormat":["https://schema.org/EBook","https://schema.org/Paperback"],"image":"https://books2read-prod.s3.amazonaws.com/ubl_book_images/book_display_image_VJ2RrlB","url":"https://books2read.com/u/m0BxMV"}}
+]}</script>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <span class="brand">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#f1e9dc"/><rect x="7" y="7" width="5" height="18" rx="1" fill="#b4532a"/><rect x="14" y="9" width="5" height="16" rx="1" fill="#557a46"/><rect x="21" y="6" width="4" height="19" rx="1" transform="rotate(8 23 15)" fill="#345a8a"/></svg>
+      Bookshelf
+    </span>
+  </header>
+
+  <div class="hero">
+    <h1 class="serif">Books for the mind and the kitchen.</h1>
+    <p class="lede">A mindset book by Kaelee Porteour and two recipe books by Mary Elizabeth. Each link lets you pick your favorite store.</p>
+  </div>
+
+  <section class="shelf" aria-labelledby="kitchen">
+    <div class="shelf-head"><h2 id="kitchen" class="serif">In the kitchen</h2><span>by Mary Elizabeth</span></div>
+
+    <article class="book">
+      <div class="cover"><img src="https://books2read-prod.s3.amazonaws.com/ubl_book_images/book_display_image_4Yxn6Qp" alt="Cover of Mediterranean Diet Recipes Book" width="400" height="600" loading="lazy" decoding="async"></div>
+      <div>
+        <h3 class="serif">Mediterranean Diet Recipes Book</h3>
+        <p class="meta">Mary Elizabeth · 2021</p>
+        <p class="desc">Starts with where the Mediterranean diet comes from, the island of Crete and the cooking of southern Italy, and which foods belong to it, then moves on to the recipes.</p>
+        <ul class="fmt" aria-label="Formats"><li class="pb">Paperback</li><li>Ebook</li></ul>
+        <div class="actions">
+          <a class="btn" href="https://books2read.com/u/4jo1Xo" rel="noopener">Ebook: choose your store <span aria-hidden="true">→</span></a>
+          <a class="btn ghost" href="https://www.barnesandnoble.com/w/mediterranean-diet-recipes-book-mary-elizabeth/1139936095" rel="noopener">Paperback at Barnes &amp; Noble</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="book">
+      <div class="cover"><img src="https://books2read-prod.s3.amazonaws.com/ubl_book_images/book_display_image_VJ2RrlB" alt="Cover of Plant Based Diet Recipes Book" width="400" height="600" loading="lazy" decoding="async"></div>
+      <div>
+        <h3 class="serif">Plant Based Diet Recipes Book</h3>
+        <p class="meta">Mary Elizabeth · 2021</p>
+        <p class="desc">Explains what a vegan diet includes and leaves out, and the way of life around it, alongside plant-based recipes.</p>
+        <ul class="fmt" aria-label="Formats"><li class="pb">Paperback</li><li>Ebook</li></ul>
+        <div class="actions">
+          <a class="btn" href="https://books2read.com/u/m0BxMV" rel="noopener">Ebook: choose your store <span aria-hidden="true">→</span></a>
+          <a class="btn ghost" href="https://www.barnesandnoble.com/w/plant-based-diet-recipes-book-mary-elizabeth/1139878988" rel="noopener">Paperback at Barnes &amp; Noble</a>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <section class="shelf" aria-labelledby="mind">
+    <div class="shelf-head"><h2 id="mind" class="serif">For the mind</h2><span>by Kaelee Porteour</span></div>
+
+    <article class="book">
+      <div class="cover"><img src="https://books2read-prod.s3.amazonaws.com/ubl_book_images/book_display_image_B8QPwAX" alt="Cover of Mindset Mastery" width="400" height="600" loading="lazy" decoding="async"></div>
+      <div>
+        <h3 class="serif">Mindset Mastery</h3>
+        <p class="sub">Unleashing Your Inner Champion for Success</p>
+        <p class="meta">Kaelee Porteour · 2024</p>
+        <p class="desc">On fixed and growth mindsets and how beliefs shape results: overcoming limiting beliefs, building resilience, setting goals, using visualization, and lining up actions with personal values.</p>
+        <ul class="fmt" aria-label="Formats"><li>Ebook</li></ul>
+        <div class="actions">
+          <a class="btn" href="https://books2read.com/u/mY9QMW" rel="noopener">Choose your store <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <p class="note">The recipe books share recipes and general information about these ways of eating. They are not medical or nutrition advice. If you have a health condition, check with a professional before changing your diet.</p>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>Book descriptions summarize each book's own store listing. "Choose your store" opens a Books2Read page listing every store that sells the ebook.</p>
+    <p>This page uses no cookies and no tracking. Cover images load from Books2Read.</p>
+  </div>
+</footer>
+</body>
+</html>

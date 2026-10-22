@@ -1,0 +1,100 @@
+<!doctype html>
+<!--
+  Books hub LANDING PAGE (front door). PRIVATE DRAFT, not published.
+  Ties the two existing imprint pages into one GitHub Pages site. Deploy layout (see README.md):
+    /            -> this index.html
+    /crypto/     -> launchpad/livewire-money/index.html
+    /kitchen/    -> launchpad/bookshelf/index.html  (cookbooks + Mindset Mastery)
+  On deploy: set <link rel="canonical"> and og:url to the real address; keep covers hotlinked
+  from books2read S3 or copy them into the repo. Separate brand: never link from Quickwell,
+  never name the holding company. Honesty: no profit/dietary/medical claims.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Books worth your shelf</title>
+<meta name="description" content="Plain-language books on crypto and finance, plus everyday Mediterranean and plant-based cookbooks and a practical mindset read. Pick your store.">
+<meta name="color-scheme" content="light dark">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Books">
+<meta property="og:title" content="Books worth your shelf">
+<meta property="og:description" content="Plain-language crypto & finance books, everyday cookbooks, and a practical mindset read. Pick your store.">
+<link rel="canonical" href="https://tjs-a11y.github.io/tjs-a11y-books/">
+<meta property="og:url" content="https://tjs-a11y.github.io/tjs-a11y-books/">
+<style>
+  :root{
+    --bg:#f5f3ee; --card:#fffdf7; --fg:#1a1915; --muted:#6a665c; --line:#e3ddcf;
+    --crypto:#1f6f52; --kitchen:#9a5a1e; --mind:#6a3fa0; --accent:#1f6f52; --radius:16px;
+  }
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+    --bg:#131510; --card:#1c1e17; --fg:#ecebe0; --muted:#a7a494; --line:#2c2f25;
+    --crypto:#64c79b; --kitchen:#e0a05a; --mind:#b38ae8; --accent:#64c79b; color-scheme:dark;
+  }}
+  :root[data-theme="dark"]{
+    --bg:#131510; --card:#1c1e17; --fg:#ecebe0; --muted:#a7a494; --line:#2c2f25;
+    --crypto:#64c79b; --kitchen:#e0a05a; --mind:#b38ae8; --accent:#64c79b; color-scheme:dark;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+  .wrap{max-width:760px;margin:0 auto;padding-block:40px;padding-left:18px;padding-right:18px}
+  h1{font-size:clamp(28px,6vw,38px);line-height:1.12;margin:0;text-wrap:balance}
+  .tag{color:var(--muted);font-size:15px;margin:10px 0 0}
+  .card{display:block;background:var(--card);border:1px solid var(--line);border-left:5px solid var(--imp,var(--accent));border-radius:var(--radius);padding:18px 18px 16px;margin:22px 0;text-decoration:none;color:inherit}
+  .crypto{--imp:var(--crypto)} .kitchen{--imp:var(--kitchen)} .mind{--imp:var(--mind)}
+  .card h2{margin:0 0 4px;font-size:21px}
+  .by{color:var(--muted);font-size:13px;margin:0 0 10px}
+  .titles{margin:0;padding-left:18px;font-size:14.5px}
+  .titles li{margin:.25em 0}
+  .go{display:inline-block;margin-top:12px;font-weight:700;color:var(--imp,var(--accent))}
+  .disc{font-size:12px;color:var(--muted);font-style:italic;margin-top:10px}
+  footer{margin-top:30px;border-top:1px solid var(--line);padding-top:12px;color:var(--muted);font-size:13px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Books worth your shelf</h1>
+  <p class="tag">Plain-language reads, three shelves. Every title links to your choice of store.</p>
+
+  <a class="card crypto" href="crypto/">
+    <h2>Crypto &amp; digital finance</h2>
+    <p class="by">by LiveWire Money · 7 books</p>
+    <ul class="titles">
+      <li>Bitcoin Halving</li>
+      <li>Mastering Cryptocurrency Trading</li>
+      <li>Mastering the Crypto Market</li>
+      <li>Maximum Crypto Profits</li>
+      <li>Revolutionizing Finance</li>
+      <li>Unlocking Crypto Riches</li>
+      <li>Unraveling the Mysteries of DAOs</li>
+    </ul>
+    <span class="go">Browse the crypto shelf →</span>
+    <div class="disc">Educational, not financial advice.</div>
+  </a>
+
+  <a class="card kitchen" href="kitchen/">
+    <h2>Everyday cookbooks</h2>
+    <p class="by">by Mary Elizabeth · 2 books</p>
+    <ul class="titles">
+      <li>Mediterranean Diet Recipes Book</li>
+      <li>Plant Based Diet Recipes Book</li>
+    </ul>
+    <span class="go">Browse the kitchen shelf →</span>
+    <div class="disc">General recipes, not dietary or medical advice.</div>
+  </a>
+
+  <a class="card mind" href="kitchen/#mindset-mastery">
+    <h2>Mindset &amp; growth</h2>
+    <p class="by">by Kaelee Porteour · 1 book</p>
+    <ul class="titles">
+      <li>Mindset Mastery</li>
+    </ul>
+    <span class="go">Read about it →</span>
+  </a>
+
+  <footer>
+    Ebooks (and paperbacks where noted) at your choice of store via books2read. — independent imprints.
+  </footer>
+</div>
+</body>
+</html>
