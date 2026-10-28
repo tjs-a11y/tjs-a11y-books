@@ -13,15 +13,66 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Books worth your shelf</title>
-<meta name="description" content="Plain-language books on crypto and finance, plus everyday Mediterranean and plant-based cookbooks and a practical mindset read. Pick your store.">
+<title>Crypto Trading Books & Mediterranean Recipes | Books</title>
+<meta name="description" content="Explore Mastering Cryptocurrency Trading, Mastering the Crypto Market, and Mediterranean Diet Recipes Book. Compare formats and choose your preferred retailer.">
 <meta name="color-scheme" content="light dark">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Books">
 <meta property="og:title" content="Books worth your shelf">
-<meta property="og:description" content="Plain-language crypto & finance books, everyday cookbooks, and a practical mindset read. Pick your store.">
+<meta property="og:description" content="Explore crypto trading and market guides plus Mediterranean recipes. Choose your preferred retailer for each book.">
 <link rel="canonical" href="https://tjs-a11y.github.io/tjs-a11y-books/">
 <meta property="og:url" content="https://tjs-a11y.github.io/tjs-a11y-books/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Crypto Trading Books and Mediterranean Recipes",
+  "url": "https://tjs-a11y.github.io/tjs-a11y-books/",
+  "description": "A collection of plain-language crypto education books and practical cookbooks, with links to retailer choices.",
+  "mainEntity": {
+    "@type": "ItemList",
+    "name": "Featured books",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@type": "Book",
+          "name": "Mastering Cryptocurrency Trading",
+          "author": {"@type": "Organization", "name": "LiveWire Money"},
+          "image": "https://books2read-prod.s3.amazonaws.com/ubl_book_images/book_display_image_V5Cki6v",
+          "url": "https://books2read.com/u/m26Ngr",
+          "inLanguage": "en"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@type": "Book",
+          "name": "Mastering the Crypto Market",
+          "author": {"@type": "Person", "name": "William Odell"},
+          "image": "https://books2read-prod.s3.amazonaws.com/ubl_book_images/book_display_image_vztLmzN",
+          "url": "https://books2read.com/u/3kDX8W",
+          "inLanguage": "en"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@type": "Book",
+          "name": "Mediterranean Diet Recipes Book",
+          "author": {"@type": "Person", "name": "Mary Elizabeth"},
+          "image": "https://books2read-prod.s3.amazonaws.com/ubl_book_images/book_display_image_4Yxn6Qp",
+          "url": "https://books2read.com/u/4jo1Xo",
+          "inLanguage": "en"
+        }
+      }
+    ]
+  }
+}
+</script>
 <style>
   :root{
     --bg:#f5f3ee; --card:#fffdf7; --fg:#1a1915; --muted:#6a665c; --line:#e3ddcf;
@@ -48,6 +99,14 @@
   .titles li{margin:.25em 0}
   .go{display:inline-block;margin-top:12px;font-weight:700;color:var(--imp,var(--accent))}
   .disc{font-size:12px;color:var(--muted);font-style:italic;margin-top:10px}
+  .priority{margin:28px 0;padding:20px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius)}
+  .priority h2{margin:0 0 6px;font-size:22px}
+  .priority-intro{color:var(--muted);margin:0 0 14px;font-size:14px}
+  .priority-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+  .priority-book{border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:8px;text-decoration:none;color:inherit;background:var(--bg)}
+  .priority-book strong{line-height:1.3}
+  .priority-book span{font-size:13px;color:var(--muted)}
+  .priority-book em{font-style:normal;font-weight:700;color:var(--accent);margin-top:auto}
   footer{margin-top:30px;border-top:1px solid var(--line);padding-top:12px;color:var(--muted);font-size:13px}
 </style>
 </head>
@@ -91,6 +150,29 @@
     </ul>
     <span class="go">Read about it →</span>
   </a>
+
+  <section class="priority" aria-labelledby="featured-books">
+    <h2 id="featured-books">Featured books</h2>
+    <p class="priority-intro">Start with these reader favorites from our featured shelves. Choose a retailer through the universal book link.</p>
+    <div class="priority-list">
+      <a class="priority-book" href="https://books2read.com/u/m26Ngr">
+        <strong>Mastering Cryptocurrency Trading</strong>
+        <span>Crypto trading concepts, order types, liquidity and analysis.</span>
+        <em>Choose a retailer →</em>
+      </a>
+      <a class="priority-book" href="https://books2read.com/u/3kDX8W">
+        <strong>Mastering the Crypto Market</strong>
+        <span>An introduction to cryptocurrencies, blockchain, trading and risk.</span>
+        <em>Choose a retailer →</em>
+      </a>
+      <a class="priority-book" href="https://books2read.com/u/4jo1Xo">
+        <strong>Mediterranean Diet Recipes Book</strong>
+        <span>Explore everyday Mediterranean-style cooking ideas.</span>
+        <em>Choose a retailer →</em>
+      </a>
+    </div>
+    <p class="disc">Crypto books are educational, not financial advice. Cookbook content is general recipes, not dietary or medical advice.</p>
+  </section>
 
   <footer>
     Ebooks (and paperbacks where noted) at your choice of store via books2read. — independent imprints.
