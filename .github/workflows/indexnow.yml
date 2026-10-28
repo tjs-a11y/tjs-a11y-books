@@ -1,0 +1,20 @@
+name: IndexNow ping
+on:
+  push:
+    branches: [main]
+    paths: ['index.html', 'crypto/**', 'kitchen/**', 'sitemap.xml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Submit hub URLs to IndexNow
+        run: |
+          code=$(curl -sS -o /tmp/resp.txt -w '%{http_code}' -X POST 'https://api.indexnow.org/indexnow' \
+            -H 'Content-Type: application/json' \
+            -d '{"host":"tjs-a11y.github.io","key":"35c6143e41ee45c7bccb6737eda0183736e67a46","keyLocation":"https://tjs-a11y.github.io/tjs-a11y-books/35c6143e41ee45c7bccb6737eda0183736e67a46.txt","urlList":["https://tjs-a11y.github.io/tjs-a11y-books/","https://tjs-a11y.github.io/tjs-a11y-books/crypto/","https://tjs-a11y.github.io/tjs-a11y-books/kitchen/"]}')
+          echo "IndexNow HTTP $code"; cat /tmp/resp.txt || true
+          # IndexNow returns 200 or 202 on success; fail the job otherwise so we see it.
+          case "$code" in 200|202) echo 'submitted ok' ;; *) echo 'IndexNow rejected'; exit 1 ;; esac
