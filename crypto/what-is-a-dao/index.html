@@ -1,0 +1,144 @@
+<!doctype html>
+<!--
+  LiveWire Money explainer — "What is a DAO?". Hosted on the books hub (tjs-a11y/tjs-a11y-books, GitHub Pages).
+  Separate brand: never link from Quickwell, never name the holding company here.
+  Facts grounded in sources opened via search on 2026-10-29 (see Sources). The DAO (2016) figures vary by source
+  ($50m vs $60m); stated as a range with that caveat.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What Is a DAO? Decentralized Autonomous Orgs</title>
+<meta name="description" content="A plain-English guide to DAOs: how smart contracts and governance tokens run a decentralized autonomous organization, the voting model, the risks, and The DAO of 2016.">
+<meta name="color-scheme" content="light dark">
+<link rel="canonical" href="https://tjs-a11y.github.io/tjs-a11y-books/crypto/what-is-a-dao/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="LiveWire Money">
+<meta property="og:url" content="https://tjs-a11y.github.io/tjs-a11y-books/crypto/what-is-a-dao/">
+<meta property="og:title" content="What Is a DAO? Decentralized Autonomous Orgs">
+<meta property="og:description" content="How smart contracts and governance tokens run a DAO, the voting model, the risks, and the story of The DAO (2016).">
+<meta property="og:image" content="https://books2read-prod.s3.amazonaws.com/ubl_book_images/book_display_image_b33wn5S">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://books2read-prod.s3.amazonaws.com/ubl_book_images/book_display_image_b33wn5S">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b1220'/%3E%3Cpath d='M18 3 7 18h7l-2 11 11-15h-7z' fill='%2322d3ee'/%3E%3C/svg%3E">
+<style>
+  :root { --bg:#f6f7fb; --surface:#fff; --ink:#0d1424; --muted:#55607a; --line:#e2e6ef; --accent:#0891b2; --accent-ink:#fff; --spark:#f59e0b; --chip:#eef2f8; --shadow:0 1px 2px rgba(13,20,36,.06),0 8px 24px rgba(13,20,36,.06); --hero-a:#0b1220; --hero-b:#10223d; --hero-ink:#eaf6ff; --hero-muted:#a9bdd6; }
+  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){ --bg:#070b14; --surface:#0f1626; --ink:#e8eef9; --muted:#9aa8c0; --line:#1e2a40; --accent:#22d3ee; --accent-ink:#04111a; --chip:#16213a; --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35); --hero-a:#050912; --hero-b:#0c1a30; color-scheme:dark; } }
+  :root[data-theme="dark"]{ --bg:#070b14; --surface:#0f1626; --ink:#e8eef9; --muted:#9aa8c0; --line:#1e2a40; --accent:#22d3ee; --accent-ink:#04111a; --chip:#16213a; --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35); --hero-a:#050912; --hero-b:#0c1a30; color-scheme:dark; }
+  *{box-sizing:border-box} html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.62 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+  a{color:var(--accent);overflow-wrap:anywhere}
+  .wrap{max-width:760px;margin:0 auto;padding:0 16px}
+  header.hero{background:radial-gradient(1000px 360px at 85% -10%,rgba(34,211,238,.18),transparent 60%),linear-gradient(160deg,var(--hero-a),var(--hero-b));color:var(--hero-ink)}
+  .bar{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.02em;color:var(--hero-ink);text-decoration:none}
+  .brand svg{width:26px;height:26px}
+  .bar nav a{color:var(--hero-muted);text-decoration:none;font-size:.9rem;margin-left:16px}
+  .bar nav a:hover{color:var(--hero-ink)}
+  .hero-body{padding:22px 0 30px}
+  .eyebrow{display:inline-block;font-size:.74rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#67e8f9;margin-bottom:10px}
+  h1{font-size:clamp(1.7rem,4.5vw,2.5rem);line-height:1.12;margin:0 0 12px;letter-spacing:-.02em;text-wrap:balance}
+  .lede{font-size:1.08rem;color:var(--hero-muted);margin:0}
+  .crumbs{font-size:.85rem;color:var(--muted);padding:14px 0 0}
+  .crumbs a{color:var(--muted)}
+  .alert{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--spark);border-radius:10px;padding:12px 16px;margin:18px 0;font-size:.9rem;color:var(--muted)}
+  main{padding:4px 0 10px}
+  article h2{font-size:1.3rem;margin:30px 0 8px;letter-spacing:-.01em}
+  article h3{font-size:1.05rem;margin:20px 0 6px}
+  article p{margin:10px 0} article ul,article ol{padding-left:22px} article li{margin:5px 0}
+  .cta{background:var(--surface);border:1px solid var(--accent);border-radius:14px;padding:16px 18px;margin:28px 0;box-shadow:var(--shadow)}
+  .cta b{display:block;margin-bottom:4px;font-size:1.05rem}
+  .btn{display:inline-flex;align-items:center;gap:6px;background:var(--accent);color:var(--accent-ink);text-decoration:none;font-weight:700;padding:9px 14px;border-radius:10px;margin-top:10px}
+  .btn:hover{filter:brightness(1.08)}
+  .sources{margin-top:28px} .sources h2{font-size:1.05rem} .sources ul{font-size:.88rem;padding-left:20px} .sources li{margin:4px 0;overflow-wrap:anywhere}
+  .notice{margin:26px 0 0;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--spark);border-radius:12px;padding:16px 18px}
+  .notice h2{font-size:1.05rem;margin:0 0 6px} .notice p{margin:0;color:var(--muted);font-size:.95rem}
+  footer{border-top:1px solid var(--line);margin-top:36px;padding:20px 0 34px;color:var(--muted);font-size:.86rem} footer p{margin:4px 0}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[
+{"@type":"BreadcrumbList","itemListElement":[
+{"@type":"ListItem","position":1,"name":"LiveWire Money","item":"https://tjs-a11y.github.io/tjs-a11y-books/"},
+{"@type":"ListItem","position":2,"name":"Crypto books","item":"https://tjs-a11y.github.io/tjs-a11y-books/crypto/"},
+{"@type":"ListItem","position":3,"name":"What is a DAO?","item":"https://tjs-a11y.github.io/tjs-a11y-books/crypto/what-is-a-dao/"}]},
+{"@type":"Article","headline":"What is a DAO? Decentralized autonomous organizations explained","inLanguage":"en","datePublished":"2026-10-29","dateModified":"2026-10-29","url":"https://tjs-a11y.github.io/tjs-a11y-books/crypto/what-is-a-dao/","description":"A plain-English explainer of DAOs: smart contracts, governance tokens, the voting model, the risks, and The DAO of 2016.","publisher":{"@type":"Organization","name":"LiveWire Money"}}
+]}</script>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <div class="bar">
+      <a class="brand" href="/tjs-a11y-books/"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#0e1b30" stroke="#22d3ee" stroke-opacity=".5"/><path d="M18 4 8 18h7l-2 10 11-15h-7z" fill="#22d3ee"/></svg> LiveWire Money</a>
+      <nav aria-label="Page"><a href="/tjs-a11y-books/crypto/">Crypto books</a><a href="#note">Not advice</a></nav>
+    </div>
+    <div class="hero-body">
+      <span class="eyebrow">Crypto, explained plainly</span>
+      <h1>What is a DAO?</h1>
+      <p class="lede">A decentralized autonomous organization runs on code and member votes instead of a boss or a head office. Here is how that works — and where it has gone wrong.</p>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/tjs-a11y-books/">Home</a> / <a href="/tjs-a11y-books/crypto/">Crypto books</a> / What is a DAO?</nav>
+
+  <p class="alert">General educational information only. Not financial, investment, accounting, or legal advice. Cryptocurrency assets carry high volatility risk.</p>
+
+  <article>
+    <h2>The one-sentence version</h2>
+    <p>A <strong>DAO</strong> (decentralized autonomous organization) is a group that runs itself through rules written in blockchain <strong>smart contracts</strong> and decisions made by member <strong>votes</strong>, rather than through a traditional management hierarchy.</p>
+
+    <h2>The building blocks</h2>
+    <h3>Smart contracts</h3>
+    <p>A smart contract is self-executing code with its terms written directly into software. Once deployed to a blockchain, it carries out its pre-set rules automatically, so a DAO can run day-to-day operations without a manager pressing the buttons. A common point that surprises newcomers: after launch, the contract's rules can usually only be changed through the DAO's own governance process.</p>
+    <h3>Governance tokens</h3>
+    <p>Members hold <strong>governance tokens</strong> that give them voting power, and influence is typically proportional to how many tokens someone holds. Members put up proposals — anything from funding a project to changing the DAO's own rules — and token holders vote.</p>
+
+    <h2>How a decision actually happens</h2>
+    <ol>
+      <li>A member submits a proposal.</li>
+      <li>Token holders vote during a set window.</li>
+      <li>If it passes the DAO's threshold, the smart contract enacts it automatically — for example, releasing funds from the treasury.</li>
+    </ol>
+
+    <h2>The risks</h2>
+    <ul>
+      <li><strong>Power concentration.</strong> If a few people hold most of the tokens, they can dominate the votes — the opposite of "decentralized."</li>
+      <li><strong>Code is law — including its bugs.</strong> Because the rules execute automatically, a flaw in the contract can be exploited exactly as written, with no manager to hit pause.</li>
+    </ul>
+
+    <h2>A cautionary tale: "The DAO" (2016)</h2>
+    <p>The best-known DAO story is a warning. In 2016, an Ethereum-based venture-fund DAO called <em>The DAO</em> raised a large sum, then was drained by an attacker exploiting a "reentrancy" bug in its code — roughly <strong>$50–60 million</strong> worth of ether at the time (accounts vary on the exact figure). The response split the community: Ethereum executed a <strong>hard fork</strong> (around 20 July 2016, at block 1,920,000) to reverse the theft and return funds, while those who rejected changing the ledger kept the original chain, now called <strong>Ethereum Classic (ETC)</strong>. The lesson that still gets quoted: a DAO is only as safe as its code and its governance.</p>
+
+    <aside class="cta">
+      <b>Go deeper on DAOs</b>
+      For a complete, plain-English beginner's guide to how DAOs are built, run and governed, access the book here.
+      <br><a class="btn" href="https://books2read.com/u/471WAA" rel="noopener">See the book: <em>Unraveling the Mysteries of DAOs</em> <span aria-hidden="true">→</span></a>
+    </aside>
+
+    <section class="sources">
+      <h2>Sources</h2>
+      <ul>
+        <li>The Block, "What is a decentralized autonomous organization (DAO)?": <a href="https://www.theblock.co/learn/286323/what-is-a-decentralized-autonomous-organizations-dao" rel="noopener">theblock.co</a></li>
+        <li>Koinly, "What is a DAO?": <a href="https://koinly.io/blog/daos-decentralized-autonomous-organizations/" rel="noopener">koinly.io</a></li>
+        <li>Ethereum.org, "The DAO hack / Ethereum Classic": <a href="https://ethereum.org/videos/dao-hack-ethereum-classic/" rel="noopener">ethereum.org</a></li>
+        <li>Gemini Cryptopedia, "The DAO hack": <a href="https://www.gemini.com/cryptopedia/the-dao-hack-makerdao" rel="noopener">gemini.com/cryptopedia</a></li>
+      </ul>
+      <p class="crumbs">Sources opened and checked on October 29, 2026. Figures for The DAO (2016) vary by source (about $50m–$60m); the exact amount and vote statistics are disputed in secondary accounts.</p>
+    </section>
+
+    <section class="notice" id="note">
+      <h2>Not financial advice</h2>
+      <p>This page is for general education only. Nothing here is financial, investment, accounting, legal or tax advice, or a recommendation to buy or sell any asset. Crypto assets are volatile and you can lose some or all of your money. Do your own research and talk to a qualified professional before you invest.</p>
+    </section>
+  </article>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>© LiveWire Money. Educational explainer; facts checked against the public sources listed above.</p>
+    <p>This page uses no cookies and no tracking.</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!doctype html>
+<!--
+  LiveWire Money explainer — "What is real-world asset (RWA) tokenization?". Books hub (tjs-a11y/tjs-a11y-books, GitHub Pages).
+  Separate brand: never link from Quickwell, never name the holding company here.
+  Facts grounded in sources opened via search on 2026-10-29 (see Sources). These are mostly crypto-industry explainers;
+  market-size figures are industry estimates, labelled (estimate), not established facts. Matches the book
+  "Revolutionizing Finance", which is specifically about tokenizing real-world assets.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What Is Real-World Asset Tokenization?</title>
+<meta name="description" content="A plain-English guide to real-world asset (RWA) tokenization: how off-chain assets like real estate and Treasuries are put on a blockchain, the benefits claimed, and the risks.">
+<meta name="color-scheme" content="light dark">
+<link rel="canonical" href="https://tjs-a11y.github.io/tjs-a11y-books/crypto/real-world-asset-tokenization/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="LiveWire Money">
+<meta property="og:url" content="https://tjs-a11y.github.io/tjs-a11y-books/crypto/real-world-asset-tokenization/">
+<meta property="og:title" content="What Is Real-World Asset Tokenization?">
+<meta property="og:description" content="How off-chain assets like real estate and Treasuries are put on a blockchain, the benefits claimed, and the risks — in plain English.">
+<meta property="og:image" content="https://books2read-prod.s3.amazonaws.com/ubl_book_images/book_display_image_0vGUAli">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://books2read-prod.s3.amazonaws.com/ubl_book_images/book_display_image_0vGUAli">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b1220'/%3E%3Cpath d='M18 3 7 18h7l-2 11 11-15h-7z' fill='%2322d3ee'/%3E%3C/svg%3E">
+<style>
+  :root { --bg:#f6f7fb; --surface:#fff; --ink:#0d1424; --muted:#55607a; --line:#e2e6ef; --accent:#0891b2; --accent-ink:#fff; --spark:#f59e0b; --chip:#eef2f8; --shadow:0 1px 2px rgba(13,20,36,.06),0 8px 24px rgba(13,20,36,.06); --hero-a:#0b1220; --hero-b:#10223d; --hero-ink:#eaf6ff; --hero-muted:#a9bdd6; }
+  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){ --bg:#070b14; --surface:#0f1626; --ink:#e8eef9; --muted:#9aa8c0; --line:#1e2a40; --accent:#22d3ee; --accent-ink:#04111a; --chip:#16213a; --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35); --hero-a:#050912; --hero-b:#0c1a30; color-scheme:dark; } }
+  :root[data-theme="dark"]{ --bg:#070b14; --surface:#0f1626; --ink:#e8eef9; --muted:#9aa8c0; --line:#1e2a40; --accent:#22d3ee; --accent-ink:#04111a; --chip:#16213a; --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35); --hero-a:#050912; --hero-b:#0c1a30; color-scheme:dark; }
+  *{box-sizing:border-box} html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.62 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+  a{color:var(--accent);overflow-wrap:anywhere}
+  .wrap{max-width:760px;margin:0 auto;padding:0 16px}
+  header.hero{background:radial-gradient(1000px 360px at 85% -10%,rgba(34,211,238,.18),transparent 60%),linear-gradient(160deg,var(--hero-a),var(--hero-b));color:var(--hero-ink)}
+  .bar{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.02em;color:var(--hero-ink);text-decoration:none}
+  .brand svg{width:26px;height:26px}
+  .bar nav a{color:var(--hero-muted);text-decoration:none;font-size:.9rem;margin-left:16px}
+  .bar nav a:hover{color:var(--hero-ink)}
+  .hero-body{padding:22px 0 30px}
+  .eyebrow{display:inline-block;font-size:.74rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#67e8f9;margin-bottom:10px}
+  h1{font-size:clamp(1.7rem,4.5vw,2.5rem);line-height:1.12;margin:0 0 12px;letter-spacing:-.02em;text-wrap:balance}
+  .lede{font-size:1.08rem;color:var(--hero-muted);margin:0}
+  .crumbs{font-size:.85rem;color:var(--muted);padding:14px 0 0}
+  .crumbs a{color:var(--muted)}
+  .alert{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--spark);border-radius:10px;padding:12px 16px;margin:18px 0;font-size:.9rem;color:var(--muted)}
+  main{padding:4px 0 10px}
+  article h2{font-size:1.3rem;margin:30px 0 8px;letter-spacing:-.01em}
+  article h3{font-size:1.05rem;margin:20px 0 6px}
+  article p{margin:10px 0} article ul,article ol{padding-left:22px} article li{margin:5px 0}
+  .cta{background:var(--surface);border:1px solid var(--accent);border-radius:14px;padding:16px 18px;margin:28px 0;box-shadow:var(--shadow)}
+  .cta b{display:block;margin-bottom:4px;font-size:1.05rem}
+  .btn{display:inline-flex;align-items:center;gap:6px;background:var(--accent);color:var(--accent-ink);text-decoration:none;font-weight:700;padding:9px 14px;border-radius:10px;margin-top:10px}
+  .btn:hover{filter:brightness(1.08)}
+  .sources{margin-top:28px} .sources h2{font-size:1.05rem} .sources ul{font-size:.88rem;padding-left:20px} .sources li{margin:4px 0;overflow-wrap:anywhere}
+  .notice{margin:26px 0 0;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--spark);border-radius:12px;padding:16px 18px}
+  .notice h2{font-size:1.05rem;margin:0 0 6px} .notice p{margin:0;color:var(--muted);font-size:.95rem}
+  footer{border-top:1px solid var(--line);margin-top:36px;padding:20px 0 34px;color:var(--muted);font-size:.86rem} footer p{margin:4px 0}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[
+{"@type":"BreadcrumbList","itemListElement":[
+{"@type":"ListItem","position":1,"name":"LiveWire Money","item":"https://tjs-a11y.github.io/tjs-a11y-books/"},
+{"@type":"ListItem","position":2,"name":"Crypto books","item":"https://tjs-a11y.github.io/tjs-a11y-books/crypto/"},
+{"@type":"ListItem","position":3,"name":"What is real-world asset tokenization?","item":"https://tjs-a11y.github.io/tjs-a11y-books/crypto/real-world-asset-tokenization/"}]},
+{"@type":"Article","headline":"What is real-world asset (RWA) tokenization?","inLanguage":"en","datePublished":"2026-10-29","dateModified":"2026-10-29","url":"https://tjs-a11y.github.io/tjs-a11y-books/crypto/real-world-asset-tokenization/","description":"A plain-English explainer of real-world asset tokenization: how off-chain assets are represented on a blockchain, the claimed benefits, and the risks.","publisher":{"@type":"Organization","name":"LiveWire Money"}}
+]}</script>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <div class="bar">
+      <a class="brand" href="/tjs-a11y-books/"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#0e1b30" stroke="#22d3ee" stroke-opacity=".5"/><path d="M18 4 8 18h7l-2 10 11-15h-7z" fill="#22d3ee"/></svg> LiveWire Money</a>
+      <nav aria-label="Page"><a href="/tjs-a11y-books/crypto/">Crypto books</a><a href="#note">Not advice</a></nav>
+    </div>
+    <div class="hero-body">
+      <span class="eyebrow">Crypto, explained plainly</span>
+      <h1>What is real-world asset tokenization?</h1>
+      <p class="lede">"Tokenizing" a building or a bond means putting a claim on it onto a blockchain. Here is how that is done, what it is supposed to improve, and where the real risk sits.</p>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/tjs-a11y-books/">Home</a> / <a href="/tjs-a11y-books/crypto/">Crypto books</a> / Real-world asset tokenization</nav>
+
+  <p class="alert">General educational information only. Not financial, investment, accounting, or legal advice. Cryptocurrency assets carry high volatility risk.</p>
+
+  <article>
+    <h2>The one-sentence version</h2>
+    <p><strong>Real-world asset (RWA) tokenization</strong> turns ownership of an off-chain asset — real estate, Treasuries, commodities, art — into tokens recorded on a blockchain, so the claim can be held, split and transferred digitally.</p>
+
+    <h2>How it works, step by step</h2>
+    <ol>
+      <li><strong>Wrap the asset legally.</strong> The real asset is placed into a legal structure — a special-purpose vehicle (SPV), a trust, or a regulated custodian — so the token represents an enforceable claim on something real.</li>
+      <li><strong>Verify and custody it.</strong> A licensed custodian typically confirms the asset exists and has not been pledged twice.</li>
+      <li><strong>Mint the tokens.</strong> Tokens are issued on a blockchain (often Ethereum or Polygon), frequently so the asset can be owned in fractions.</li>
+      <li><strong>Distribute and service.</strong> Fractions are sold to investors, who may receive income the asset produces — for example, rent from a tokenized property.</li>
+    </ol>
+
+    <h2>What it is supposed to improve</h2>
+    <ul>
+      <li><strong>Fractional access.</strong> People can buy a small slice of an expensive asset instead of the whole thing.</li>
+      <li><strong>Always-on settlement.</strong> Public blockchains run 24/7, unlike traditional market hours.</li>
+      <li><strong>Fewer middlemen, in theory.</strong> Proponents argue removing intermediaries can cut cost and settlement time.</li>
+      <li><strong>Auditability.</strong> A public ledger can make ownership and transfers easier to trace.</li>
+    </ul>
+    <p class="crumbs">These are the benefits the industry <em>claims</em>; whether a given project delivers them depends entirely on how it is built and regulated.</p>
+
+    <h2>Where the risk actually sits</h2>
+    <ul>
+      <li><strong>The token is only as good as the legal claim behind it.</strong> Most of the risk is off-chain — how the asset is held, priced and enforced — not in the blockchain itself.</li>
+      <li><strong>Regulatory uncertainty.</strong> Legal treatment is still unsettled, and it gets murkier across borders. Projects often require identity checks, investor eligibility and transfer restrictions.</li>
+      <li><strong>Technical limits.</strong> Moving assets across different blockchains raises composability and scalability problems.</li>
+      <li><strong>Volatility and liquidity.</strong> A token being tradable does not guarantee a buyer at a fair price.</li>
+    </ul>
+    <p>Industry estimates of the market's size vary widely and are not settled facts — figures around <strong>$20&nbsp;billion+</strong> today and multi-trillion-dollar forecasts for 2030 come from industry players, so treat them as <strong>(estimate)</strong>, not established numbers.</p>
+
+    <aside class="cta">
+      <b>Go deeper on tokenization</b>
+      For a complete, plain-English beginner's guide to how real-world assets are tokenized — the process, the technology and the legal questions — access the book here.
+      <br><a class="btn" href="https://books2read.com/u/3n99o6" rel="noopener">See the book: <em>Revolutionizing Finance</em> <span aria-hidden="true">→</span></a>
+    </aside>
+
+    <section class="sources">
+      <h2>Sources</h2>
+      <ul>
+        <li>bitcoin.tax, "RWA in Crypto Explained: Tokenization of Real World Assets": <a href="https://bitcoin.tax/blog/rwa-tokenization/" rel="noopener">bitcoin.tax/blog</a></li>
+        <li>Techloy, "What is Real-World Assets (RWAs)": <a href="https://www.techloy.com/what-is-real-world-assets-rwas/" rel="noopener">techloy.com</a></li>
+        <li>Unchained, "Real World Asset Tokenization": <a href="https://unchainedcrypto.com/real-world-asset-tokenization/" rel="noopener">unchainedcrypto.com</a></li>
+        <li>Safeheron, "What is an RWA Token and How Does It Work": <a href="https://safeheron.com/blog/what-is-rwa-token-and-how-does-it-work-explained/" rel="noopener">safeheron.com</a></li>
+      </ul>
+      <p class="crumbs">Sources opened and checked on October 29, 2026. These are crypto-industry explainers; market-size figures are industry estimates, not independently verified. For jurisdiction-specific rules, check primary regulatory sources.</p>
+    </section>
+
+    <section class="notice" id="note">
+      <h2>Not financial advice</h2>
+      <p>This page is for general education only. Nothing here is financial, investment, accounting, legal or tax advice, or a recommendation to buy or sell any asset. Crypto assets are volatile and you can lose some or all of your money. Do your own research and talk to a qualified professional before you invest.</p>
+    </section>
+  </article>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>© LiveWire Money. Educational explainer; facts checked against the public sources listed above.</p>
+    <p>This page uses no cookies and no tracking.</p>
+  </div>
+</footer>
+</body>
+</html>

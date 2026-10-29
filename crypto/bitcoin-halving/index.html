@@ -1,0 +1,148 @@
+<!doctype html>
+<!--
+  LiveWire Money explainer — "What is the Bitcoin halving?". Hosted on the books hub (tjs-a11y/tjs-a11y-books, GitHub Pages).
+  Separate brand: never link from Quickwell, never name the holding company here.
+  Facts grounded in sources opened via search on 2026-10-29 (see Sources). Forward dates labelled (estimate):
+  the halving triggers on block height, not a calendar date.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What Is the Bitcoin Halving? How It Works</title>
+<meta name="description" content="A plain-English guide to the Bitcoin halving: the block-reward schedule (50 to 3.125 BTC), why it happens every 210,000 blocks, the 21 million cap, and past dates.">
+<meta name="color-scheme" content="light dark">
+<link rel="canonical" href="https://tjs-a11y.github.io/tjs-a11y-books/crypto/bitcoin-halving/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="LiveWire Money">
+<meta property="og:url" content="https://tjs-a11y.github.io/tjs-a11y-books/crypto/bitcoin-halving/">
+<meta property="og:title" content="What Is the Bitcoin Halving? How It Works">
+<meta property="og:description" content="The block-reward schedule, why it happens every 210,000 blocks, the 21 million cap, and the past halving dates — in plain English.">
+<meta property="og:image" content="https://books2read-prod.s3.amazonaws.com/ubl_book_images/book_display_image_NXRVKc1">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://books2read-prod.s3.amazonaws.com/ubl_book_images/book_display_image_NXRVKc1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b1220'/%3E%3Cpath d='M18 3 7 18h7l-2 11 11-15h-7z' fill='%2322d3ee'/%3E%3C/svg%3E">
+<style>
+  :root { --bg:#f6f7fb; --surface:#fff; --ink:#0d1424; --muted:#55607a; --line:#e2e6ef; --accent:#0891b2; --accent-ink:#fff; --spark:#f59e0b; --chip:#eef2f8; --shadow:0 1px 2px rgba(13,20,36,.06),0 8px 24px rgba(13,20,36,.06); --hero-a:#0b1220; --hero-b:#10223d; --hero-ink:#eaf6ff; --hero-muted:#a9bdd6; }
+  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){ --bg:#070b14; --surface:#0f1626; --ink:#e8eef9; --muted:#9aa8c0; --line:#1e2a40; --accent:#22d3ee; --accent-ink:#04111a; --chip:#16213a; --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35); --hero-a:#050912; --hero-b:#0c1a30; color-scheme:dark; } }
+  :root[data-theme="dark"]{ --bg:#070b14; --surface:#0f1626; --ink:#e8eef9; --muted:#9aa8c0; --line:#1e2a40; --accent:#22d3ee; --accent-ink:#04111a; --chip:#16213a; --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35); --hero-a:#050912; --hero-b:#0c1a30; color-scheme:dark; }
+  *{box-sizing:border-box} html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.62 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+  a{color:var(--accent);overflow-wrap:anywhere}
+  .wrap{max-width:760px;margin:0 auto;padding:0 16px}
+  header.hero{background:radial-gradient(1000px 360px at 85% -10%,rgba(34,211,238,.18),transparent 60%),linear-gradient(160deg,var(--hero-a),var(--hero-b));color:var(--hero-ink)}
+  .bar{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.02em;color:var(--hero-ink);text-decoration:none}
+  .brand svg{width:26px;height:26px}
+  .bar nav a{color:var(--hero-muted);text-decoration:none;font-size:.9rem;margin-left:16px}
+  .bar nav a:hover{color:var(--hero-ink)}
+  .hero-body{padding:22px 0 30px}
+  .eyebrow{display:inline-block;font-size:.74rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#67e8f9;margin-bottom:10px}
+  h1{font-size:clamp(1.7rem,4.5vw,2.5rem);line-height:1.12;margin:0 0 12px;letter-spacing:-.02em;text-wrap:balance}
+  .lede{font-size:1.08rem;color:var(--hero-muted);margin:0}
+  .crumbs{font-size:.85rem;color:var(--muted);padding:14px 0 0}
+  .crumbs a{color:var(--muted)}
+  .alert{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--spark);border-radius:10px;padding:12px 16px;margin:18px 0;font-size:.9rem;color:var(--muted)}
+  main{padding:4px 0 10px}
+  article h2{font-size:1.3rem;margin:30px 0 8px;letter-spacing:-.01em}
+  article h3{font-size:1.05rem;margin:20px 0 6px}
+  article p{margin:10px 0} article ul,article ol{padding-left:22px} article li{margin:5px 0}
+  .tbl{overflow-x:auto;max-width:100%;margin:14px 0} table{border-collapse:collapse;width:100%;font-size:.92rem}
+  th,td{text-align:left;padding:7px 9px;border-bottom:1px solid var(--line)} th{font-weight:700;color:var(--muted);font-size:.84rem;text-transform:uppercase;letter-spacing:.03em}
+  td.n{font-variant-numeric:tabular-nums}
+  .cta{background:var(--surface);border:1px solid var(--accent);border-radius:14px;padding:16px 18px;margin:28px 0;box-shadow:var(--shadow)}
+  .cta b{display:block;margin-bottom:4px;font-size:1.05rem}
+  .btn{display:inline-flex;align-items:center;gap:6px;background:var(--accent);color:var(--accent-ink);text-decoration:none;font-weight:700;padding:9px 14px;border-radius:10px;margin-top:10px}
+  .btn:hover{filter:brightness(1.08)}
+  .sources{margin-top:28px} .sources h2{font-size:1.05rem} .sources ul{font-size:.88rem;padding-left:20px} .sources li{margin:4px 0;overflow-wrap:anywhere}
+  .notice{margin:26px 0 0;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--spark);border-radius:12px;padding:16px 18px}
+  .notice h2{font-size:1.05rem;margin:0 0 6px} .notice p{margin:0;color:var(--muted);font-size:.95rem}
+  footer{border-top:1px solid var(--line);margin-top:36px;padding:20px 0 34px;color:var(--muted);font-size:.86rem} footer p{margin:4px 0}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[
+{"@type":"BreadcrumbList","itemListElement":[
+{"@type":"ListItem","position":1,"name":"LiveWire Money","item":"https://tjs-a11y.github.io/tjs-a11y-books/"},
+{"@type":"ListItem","position":2,"name":"Crypto books","item":"https://tjs-a11y.github.io/tjs-a11y-books/crypto/"},
+{"@type":"ListItem","position":3,"name":"What is the Bitcoin halving?","item":"https://tjs-a11y.github.io/tjs-a11y-books/crypto/bitcoin-halving/"}]},
+{"@type":"Article","headline":"What is the Bitcoin halving? How it works","inLanguage":"en","datePublished":"2026-10-29","dateModified":"2026-10-29","url":"https://tjs-a11y.github.io/tjs-a11y-books/crypto/bitcoin-halving/","description":"A plain-English explainer of the Bitcoin halving: the block-reward schedule, the 210,000-block cadence, the 21 million cap and past dates.","publisher":{"@type":"Organization","name":"LiveWire Money"}}
+]}</script>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <div class="bar">
+      <a class="brand" href="/tjs-a11y-books/"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#0e1b30" stroke="#22d3ee" stroke-opacity=".5"/><path d="M18 4 8 18h7l-2 10 11-15h-7z" fill="#22d3ee"/></svg> LiveWire Money</a>
+      <nav aria-label="Page"><a href="/tjs-a11y-books/crypto/">Crypto books</a><a href="#note">Not advice</a></nav>
+    </div>
+    <div class="hero-body">
+      <span class="eyebrow">Crypto, explained plainly</span>
+      <h1>What is the Bitcoin halving?</h1>
+      <p class="lede">Every so often the reward for mining a Bitcoin block is cut in half. Here is what that means, why it is built into the code, and when it has happened.</p>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/tjs-a11y-books/">Home</a> / <a href="/tjs-a11y-books/crypto/">Crypto books</a> / What is the Bitcoin halving?</nav>
+
+  <p class="alert">General educational information only. Not financial, investment, accounting, or legal advice. Cryptocurrency assets carry high volatility risk.</p>
+
+  <article>
+    <h2>The one-sentence version</h2>
+    <p>The <strong>Bitcoin halving</strong> is a rule in Bitcoin's code that cuts the reward paid to miners for each new block in half roughly every four years — specifically every <strong>210,000 blocks</strong> — which slows the rate at which new bitcoin is created.</p>
+
+    <h2>How it works</h2>
+    <p>Miners add blocks of transactions to the Bitcoin blockchain, and each new block pays them a fixed amount of newly created bitcoin, called the block reward (or subsidy). The code reduces that subsidy by 50% every 210,000 blocks. Because a block is produced about every ten minutes on average, 210,000 blocks works out to roughly four years — but the trigger is the <strong>block height</strong> (the block number), not a calendar date. Block times vary, so any future date is only an estimate.</p>
+
+    <h2>The schedule so far</h2>
+    <div class="tbl"><table>
+      <thead><tr><th>Event</th><th>Block height</th><th>Approx. date (UTC)</th><th>New reward</th></tr></thead>
+      <tbody>
+        <tr><td>Launch</td><td class="n">0</td><td>Jan 2009</td><td class="n">50 BTC</td></tr>
+        <tr><td>1st halving</td><td class="n">210,000</td><td>28 Nov 2012</td><td class="n">25 BTC</td></tr>
+        <tr><td>2nd halving</td><td class="n">420,000</td><td>9 Jul 2016</td><td class="n">12.5 BTC</td></tr>
+        <tr><td>3rd halving</td><td class="n">630,000</td><td>11 May 2020</td><td class="n">6.25 BTC</td></tr>
+        <tr><td>4th halving</td><td class="n">840,000</td><td>Apr 2024</td><td class="n">3.125 BTC</td></tr>
+        <tr><td>5th halving <em>(estimate)</em></td><td class="n">1,050,000</td><td>~2028 (estimate)</td><td class="n">1.5625 BTC</td></tr>
+      </tbody>
+    </table></div>
+    <p class="crumbs">The exact calendar day of a halving varies slightly by source because it depends on when the trigger block is mined; the block height is the authoritative marker. The sources below differ by a day on the April 2024 event.</p>
+
+    <h2>Why there will only ever be about 21 million</h2>
+    <p>Because the reward keeps halving, the total amount of bitcoin that can ever be created is capped. Adding up all the rewards (50 + 25 + 12.5 + …) multiplied by 210,000 blocks per era gives about <strong>21 million</strong>. Rounding inside the code means the true terminal supply is approximately 20,999,999.9769 BTC, which is usually just called "21 million." The final subsidy reduction is expected around the year <strong>2140 (estimate)</strong>, after which miners are paid only by transaction fees.</p>
+
+    <h2>Why people pay attention to it</h2>
+    <p>The halving is the mechanism behind Bitcoin's fixed, predictable issuance — the reason its supply growth slows over time rather than being decided by any central party. That is a fact about the <em>supply schedule</em>. It is <strong>not</strong> a prediction about price: past halvings are often discussed alongside price moves, but correlation in a handful of cycles is not a guarantee of anything, and crypto is volatile. Nothing here is advice to buy or sell.</p>
+
+    <aside class="cta">
+      <b>Go deeper on the halving</b>
+      For a complete, plain-English beginner's guide to the halving and how it has shaped Bitcoin's past, present and future, access the book here.
+      <br><a class="btn" href="https://books2read.com/u/3G7pZr" rel="noopener">See the book: <em>Bitcoin Halving</em> <span aria-hidden="true">→</span></a>
+    </aside>
+
+    <section class="sources">
+      <h2>Sources</h2>
+      <ul>
+        <li>Blockstream Education, "What is the Bitcoin halving": <a href="https://help.blockstream.com/education/economics/bitcoin-economics/what-is-the-bitcoin-halving" rel="noopener">help.blockstream.com</a></li>
+        <li>Strike, "What is the Bitcoin supply schedule": <a href="https://strike.me/learn/what-is-the-bitcoin-supply-schedule" rel="noopener">strike.me/learn</a></li>
+        <li>NerdWallet, "Bitcoin Halving: How It Works, Why and When It Happens": <a href="https://www.nerdwallet.com/article/investing/bitcoin-halving" rel="noopener">nerdwallet.com</a></li>
+        <li>Banxa, "What is Bitcoin halving" (next-event block height and reward): <a href="https://banxa.com/learn/crypto-basics/what-is-bitcoin-halving" rel="noopener">banxa.com/learn</a></li>
+      </ul>
+      <p class="crumbs">Sources opened and checked on October 29, 2026. Forward-looking dates are estimates; the halving is driven by block height, not the calendar.</p>
+    </section>
+
+    <section class="notice" id="note">
+      <h2>Not financial advice</h2>
+      <p>This page is for general education only. Nothing here is financial, investment, accounting, legal or tax advice, or a recommendation to buy or sell any asset. Crypto assets are volatile and you can lose some or all of your money. Do your own research and talk to a qualified professional before you invest.</p>
+    </section>
+  </article>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>© LiveWire Money. Educational explainer; facts checked against the public sources listed above.</p>
+    <p>This page uses no cookies and no tracking.</p>
+  </div>
+</footer>
+</body>
+</html>
