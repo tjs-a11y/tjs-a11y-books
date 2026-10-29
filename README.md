@@ -13,7 +13,7 @@ The hub uses canonical URLs, retailer-universal links, Book/ItemList structured 
 
 - Google Search Console property verification was completed by the CEO on 2026-10-28.
 - The sitemap submission was accepted by Google Search Console on 2026-10-28. Acceptance means Google read the sitemap; it does not mean every URL is indexed.
-- IndexNow's initial submission succeeded (HTTP 200/202) on 2026-10-28. The new page's submission must be confirmed from the workflow run after this commit.
+- The IndexNow workflow run after adding the new page succeeded on 2026-10-29 UTC, confirming URL submission (HTTP 200/202). Submission is not proof of indexing.
 - Bing Webmaster Tools remains an open CEO task: add this property and submit sitemap.xml.
 - Check Google Search Console's Pages report and Bing Webmaster after crawls; do not report indexing without evidence.
 
