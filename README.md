@@ -1,37 +1,35 @@
-# Books hub — deploy-ready (private draft, 2026-10-22)
+# Books hub — live and verified for submission (2026-10-28)
 
-The books hub is **built and ready to deploy**. Three drafts, now tied together by a front-door landing page:
-- `launchpad/books-hub/index.html` — the **landing** (front door; links the shelves).
-- `launchpad/livewire-money/index.html` — the **7 crypto titles** (real covers, store-verified descriptions).
-- `launchpad/bookshelf/index.html` — the **2 cookbooks + Mindset Mastery** (real covers, store-verified; paperback links for the cookbooks).
+The public GitHub Pages site is hosted at:
 
-All three: separate brand (never link from Quickwell, never name the holding company), honesty lines baked in, responsive + dark/light, no cookies/tracking.
+- Landing page: https://tjs-a11y.github.io/tjs-a11y-books/
+- Crypto shelf: https://tjs-a11y.github.io/tjs-a11y-books/crypto/
+- Recipe shelf: https://tjs-a11y.github.io/tjs-a11y-books/kitchen/
+- Mastering Cryptocurrency Trading overview: https://tjs-a11y.github.io/tjs-a11y-books/mastering-cryptocurrency-trading/
 
-## One-tap deploy (CEO: ~5 min)
-1. **Create a public repo** — e.g. `tjs-a11y/books` — and turn on **Settings → Pages → Deploy from branch → `main` / root**. (Optionally add a custom domain.)
-2. Ping staff. We push these files in this layout:
-   ```
-   /index.html                 ← books-hub/index.html (landing)
-   /crypto/index.html          ← livewire-money/index.html
-   /kitchen/index.html         ← bookshelf/index.html   (cookbooks + Mindset Mastery)
-   /sitemap.xml  /robots.txt   ← generated at deploy (template below)
-   ```
-3. Staff then set `<link rel="canonical">` + `og:url` on every page to the real address, add `og:image`, submit the sitemap (and IndexNow), and either keep the covers hotlinked from books2read S3 or copy them into the repo.
+The hub uses canonical URLs, retailer-universal links, Book/ItemList structured data, sitemap.xml, robots.txt, and an IndexNow workflow. The new title overview is linked from the crypto shelf and included in the sitemap and IndexNow URL list.
 
-## sitemap.xml (fill DOMAIN at deploy)
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://DOMAIN/</loc></url>
-  <url><loc>https://DOMAIN/crypto/</loc></url>
-  <url><loc>https://DOMAIN/kitchen/</loc></url>
-</urlset>
-```
-`robots.txt`: `User-agent: *` / `Allow: /` / `Sitemap: https://DOMAIN/sitemap.xml`
+## Search handoff
 
-## Off-site complement
-The **Book Promo Kit** (`marketing/promo-assets/book-promo-kit.html` + `books.md`) is the social/newsletter copy that points at this hub once it's live. Per SO22, the nightly Marketing shift keeps both current and optimizes a title each night.
+- Google Search Console property verification was completed by the CEO on 2026-10-28.
+- The sitemap submission was accepted by Google Search Console on 2026-10-28. Acceptance means Google read the sitemap; it does not mean every URL is indexed.
+- IndexNow's initial submission succeeded (HTTP 200/202) on 2026-10-28. The new page's submission must be confirmed from the workflow run after this commit.
+- Bing Webmaster Tools remains an open CEO task: add this property and submit sitemap.xml.
+- Check Google Search Console's Pages report and Bing Webmaster after crawls; do not report indexing without evidence.
 
-## Still CEO's call
-- The repo + Pages (above) — the only thing blocking a live, SEO-discoverable owned book channel.
-- Paperback store links for *Mastering Cryptocurrency Trading* and *Mastering the Crypto Market* (D2D Print; books2read shows only ebook) — CEO to supply; an HTML comment marks the spot on the crypto page.
+## Marketing scope
+
+The only CEO-selected titles for active book marketing are:
+
+1. **Mastering Cryptocurrency Trading** — https://books2read.com/u/m26Ngr
+2. **Mastering the Crypto Market** — https://books2read.com/u/3kDX8W
+3. **Mediterranean Diet Recipes Book** — https://books2read.com/u/4jo1Xo
+
+Use the actual book/retailer description as the source of truth. Crypto content must say “Educational, not financial advice.” Cookbook content must say “General recipes, not dietary or medical advice.” Do not fabricate reviews, bestseller status, or outcome promises.
+
+## Attribution and open items
+
+- Books2Read links let readers choose a retailer. The hub currently has no click tracking or cookies; do not add tracking without a privacy review.
+- Per-link book sales are not attributable through the universal links. Draft2Digital's sales/royalty dashboard remains the source of truth; a CEO export is needed to prioritize by observed sales.
+- Paperback store links for the two crypto titles remain unconfirmed; Books2Read currently presents ebook options. Do not invent paperback links.
+- Do not link the book hub from Quickwell; the hub remains a separate brand.
