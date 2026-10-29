@@ -14,7 +14,7 @@ jobs:
         run: |
           code=$(curl -sS -o /tmp/resp.txt -w '%{http_code}' -X POST 'https://api.indexnow.org/indexnow' \
             -H 'Content-Type: application/json' \
-            -d '{"host":"tjs-a11y.github.io","key":"35c6143e41ee45c7bccb6737eda0183736e67a46","keyLocation":"https://tjs-a11y.github.io/tjs-a11y-books/35c6143e41ee45c7bccb6737eda0183736e67a46.txt","urlList":["https://tjs-a11y.github.io/tjs-a11y-books/","https://tjs-a11y.github.io/tjs-a11y-books/crypto/","https://tjs-a11y.github.io/tjs-a11y-books/kitchen/","https://tjs-a11y.github.io/tjs-a11y-books/mastering-cryptocurrency-trading/"]}')
+            -d '{"host":"tjs-a11y.github.io","key":"35c6143e41ee45c7bccb6737eda0183736e67a46","keyLocation":"https://tjs-a11y.github.io/tjs-a11y-books/35c6143e41ee45c7bccb6737eda0183736e67a46.txt","urlList":["https://tjs-a11y.github.io/tjs-a11y-books/","https://tjs-a11y.github.io/tjs-a11y-books/crypto/","https://tjs-a11y.github.io/tjs-a11y-books/kitchen/","https://tjs-a11y.github.io/tjs-a11y-books/mastering-cryptocurrency-trading/","https://tjs-a11y.github.io/tjs-a11y-books/crypto/bitcoin-halving/","https://tjs-a11y.github.io/tjs-a11y-books/crypto/what-is-a-dao/","https://tjs-a11y.github.io/tjs-a11y-books/crypto/real-world-asset-tokenization/"]}')
           echo "IndexNow HTTP $code"; cat /tmp/resp.txt || true
           # IndexNow returns 200 or 202 on success; fail the job otherwise so we see it.
           case "$code" in 200|202) echo 'submitted ok' ;; *) echo 'IndexNow rejected'; exit 1 ;; esac
