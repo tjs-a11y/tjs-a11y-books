@@ -1,4 +1,4 @@
-# Books hub — live and verified for submission (2026-10-28)
+# Books hub — live and verified for submission (2026-10-29)
 
 The public GitHub Pages site is hosted at:
 
@@ -6,8 +6,10 @@ The public GitHub Pages site is hosted at:
 - Crypto shelf: https://tjs-a11y.github.io/tjs-a11y-books/crypto/
 - Recipe shelf: https://tjs-a11y.github.io/tjs-a11y-books/kitchen/
 - Mastering Cryptocurrency Trading overview: https://tjs-a11y.github.io/tjs-a11y-books/mastering-cryptocurrency-trading/
+- Mastering the Crypto Market overview: https://tjs-a11y.github.io/tjs-a11y-books/mastering-the-crypto-market/
+- Mediterranean Diet Recipes Book overview: https://tjs-a11y.github.io/tjs-a11y-books/mediterranean-diet-recipes-book/
 
-The hub uses canonical URLs, retailer-universal links, Book/ItemList structured data, sitemap.xml, robots.txt, and an IndexNow workflow. The new title overview is linked from the crypto shelf and included in the sitemap and IndexNow URL list.
+The hub uses canonical URLs, retailer-universal links, Book/ItemList structured data, sitemap.xml, robots.txt, and an IndexNow workflow. The three CEO-selected title overviews are linked from their relevant shelves and included in the sitemap and IndexNow URL list.
 
 ## Search handoff
 
