@@ -2,7 +2,7 @@ name: IndexNow ping
 on:
   push:
     branches: [main]
-    paths: ['index.html', 'crypto/**', 'kitchen/**', 'mastering-cryptocurrency-trading/**', 'mastering-the-crypto-market/**', 'mediterranean-diet-recipes-book/**', 'bitcoin-halving-book/**', 'unlocking-crypto-riches/**', 'maximum-crypto-profits/**', 'unraveling-daos/**', 'revolutionizing-finance/**', 'plant-based-diet-recipes-book/**', 'mindset-mastery/**', 'reading-guides/**', 'sitemap.xml']
+    paths: ['.github/workflows/indexnow.yml', 'index.html', 'crypto/**', 'kitchen/**', 'mastering-cryptocurrency-trading/**', 'mastering-the-crypto-market/**', 'mediterranean-diet-recipes-book/**', 'bitcoin-halving-book/**', 'unlocking-crypto-riches/**', 'maximum-crypto-profits/**', 'unraveling-daos/**', 'revolutionizing-finance/**', 'plant-based-diet-recipes-book/**', 'mindset-mastery/**', 'reading-guides/**', 'sitemap.xml']
   workflow_dispatch:
 permissions:
   contents: read
