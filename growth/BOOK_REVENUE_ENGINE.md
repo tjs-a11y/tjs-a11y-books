@@ -31,7 +31,7 @@ Do not automatically promote every title in the wider catalogue. Expand the acti
 
 Supabase table: `public.crypto_books_seo_matrix`.
 
-Current snapshot on 2026-11-09: 355 rows, 355 unique slugs and 10 distinct book links represented. The active three-book campaign has 36 new targets per title in batch `books-growth-2026-11-09-02` (108 new rows). The table is a planning and editorial queue; it is **not** proof that each target is a published page.
+Current snapshot on 2026-11-09: 445 rows, 445 unique slugs and 10 distinct book links represented. The active three-book campaign added 36 targets per title in batch `books-growth-2026-11-09-02` (108 rows) and 30 more per title in batch `books-growth-2026-11-09-03` (90 rows). The table is a planning and editorial queue; it is **not** proof that each target is a published page.
 
 Each target should carry:
 - one distinct search intent and a non-duplicative slug;
@@ -139,14 +139,19 @@ A target can move to indexed only after Search Console or the relevant search en
 
 ## First 30-day execution priorities
 
-1. Verify the three existing overview pages, shelves, reading-guide hub and sitemap in production.
-2. Audit the 108 new targets against existing guides and consolidate overlaps before drafting.
-3. Publish a small, high-quality first batch: start with 3–5 guides per book, not 36 pages at once.
-4. Add internal links from each guide to its book overview and related guides.
-5. Deploy and validate the sitemap; submit the updated sitemap and IndexNow URLs.
-6. Implement privacy-reviewed first-party CTA click measurement only after the collection and retention design is approved.
-7. Reconcile first available distributor sales statements against campaign periods; do not promise per-link attribution that Books2Read does not expose.
-8. Refresh content based on actual search demand, reader engagement and royalty evidence.
+Completed on 2026-11-09:
+1. Production verification: all 101 sitemap URLs returned HTTP 200 with matching canonical tags; all three approved book destinations were present.
+2. Discovery submission: IndexNow accepted the sitemap URL submission (HTTP 200). This is submission, not proof of indexing.
+3. Initial content refresh: nine priority guides were rewritten with topic-specific practical content (three per book cluster); the 60-guide inventory was preserved without duplicate URLs.
+4. Measurement foundation: first-party click endpoint and site instrumentation deployed; event capture still awaits the first test/real CTA click and corresponding database row.
+5. Search baseline: nine daily GSC page aggregates imported for the homepage from 2026-10-29 through 2026-11-06 (49 impressions, zero clicks).
+
+Next priorities:
+1. Run a controlled CTA click test and confirm the event arrives in Supabase before declaring end-to-end tracking verified.
+2. Import Draft2Digital statement rows into `book_royalty_statements`; do not infer sales from Books2Read clicks.
+3. Pull Search Console page-level data weekly and inspect why visibility currently appears only for the homepage.
+4. Review the remaining guide inventory for generic or overlapping content; refresh only where a distinct reader problem can be answered well.
+5. Publish further pages only after editorial QA and clear separation from existing URLs.
 
 ## KPI definitions
 
@@ -170,7 +175,7 @@ The governing rule: **useful content earns discovery; a clear recommendation ear
 - Supabase SEO intent registry: **445 unique slugs**, including 90 additional targets in batch `books-growth-2026-11-09-03` (30 per priority title). Registry targets are not publication or indexing evidence.
 - Existing content inventory: 60 individual reading-guide directories across the three priority title clusters. The current execution preserves and instruments these rather than creating duplicate thin pages.
 - Deployed Supabase Edge Function: `book-click`. It accepts only approved Books2Read destinations and records book slug, source path, CTA placement and timestamp. It does not collect names, emails, IP addresses, cookies or fingerprints. It is intentionally public for browser click events, with an exact origin allowlist and strict payload validation; CORS is not an anti-abuse boundary.
-- Database tables: `book_outbound_click_events`, `book_search_performance_daily`, and `book_royalty_statements`. RLS is enabled and direct anon/authenticated privileges are revoked. The Edge Function writes events server-side. Search Console/Bing and Draft2Digital tables await source exports.
+- Database tables: `book_outbound_click_events`, `book_search_performance_daily`, and `book_royalty_statements`. RLS is enabled and direct anon/authenticated privileges are revoked. The Edge Function writes events server-side. Nine daily Google Search Console aggregates have been imported; Draft2Digital royalty statement data still awaits a source export.
 - Saved report: [Books Growth Performance](https://supabase.com/dashboard/project/dejplqevodwfeaemrska/explorer/notebook/34ec8a1d-3f98-4982-a076-5c821e8e034c). It reports click events, top referring pages, daily click trend, imported search aggregates and imported distributor royalties.
 - GitHub PR #3 was merged on 2026-11-09. The shared tracker is now in main across the home page, crypto and kitchen shelves, three book overviews, reading-guide hub and all 60 guide pages. GitHub Pages deployment completed successfully. Production health check passed for all 101 sitemap URLs (HTTP 200 and matching canonical URLs), and the three approved Books2Read destinations were present. IndexNow accepted the sitemap submission (HTTP 200). The tracking script is published; first end-to-end event capture still awaits a real/test CTA click and a matching Supabase row.
 - Event counts are raw CTA click events, not unique readers, retailer checkouts or orders. Bot filtering/deduplication is not yet implemented. Books2Read universal links do not expose dependable per-link sales attribution; use Draft2Digital statements for royalties.
