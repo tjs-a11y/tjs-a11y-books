@@ -1,0 +1,117 @@
+name: Books hub production health
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Weekly production check; UTC is deliberate and independent of daylight saving.
+    - cron: '35 13 * * 2'
+  push:
+    branches: [main]
+    paths:
+      - 'sitemap.xml'
+      - 'robots.txt'
+      - 'index.html'
+      - 'crypto/**'
+      - 'kitchen/**'
+      - 'reading-guides/**'
+      - 'mastering-cryptocurrency-trading/**'
+      - 'mastering-the-crypto-market/**'
+      - 'mediterranean-diet-recipes-book/**'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: books-hub-production-health
+  cancel-in-progress: false
+
+jobs:
+  production-health:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out sitemap and expected book destinations
+        uses: actions/checkout@v4
+
+      - name: Allow GitHub Pages to publish the latest commit
+        if: github.event_name == 'push'
+        run: sleep 90
+
+      - name: Verify sitemap URLs, HTTP responses and canonical tags
+        env:
+          SITE_ROOT: https://tjs-a11y.github.io/tjs-a11y-books/
+        run: |
+          python - <<'PY'
+          import re
+          import sys
+          import time
+          import urllib.error
+          import urllib.request
+          import xml.etree.ElementTree as ET
+          from urllib.parse import urlparse
+
+          root = "https://tjs-a11y.github.io/tjs-a11y-books/"
+          ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+          sitemap = ET.parse("sitemap.xml").getroot()
+          urls = [node.text.strip() for node in sitemap.findall(".//sm:loc", ns) if node.text and node.text.strip()]
+          if not urls:
+              raise SystemExit("FAIL: sitemap contains no URLs")
+          if len(urls) != len(set(urls)):
+              raise SystemExit("FAIL: sitemap contains duplicate URLs")
+
+          invalid = [u for u in urls if not u.startswith(root) or urlparse(u).scheme != "https"]
+          if invalid:
+              raise SystemExit("FAIL: off-domain or non-HTTPS sitemap URLs: " + ", ".join(invalid))
+
+          headers = {"User-Agent": "BooksHubHealthCheck/1.0 (+https://github.com/tjs-a11y/tjs-a11y-books)"}
+          failures = []
+          for index, url in enumerate(urls, 1):
+              last_error = None
+              for attempt in range(4):
+                  try:
+                      req = urllib.request.Request(url, headers=headers)
+                      with urllib.request.urlopen(req, timeout=20) as response:
+                          status = response.status
+                          html = response.read().decode("utf-8", "replace")
+                      if status != 200:
+                          raise RuntimeError(f"HTTP {status}")
+                      match = re.search(r'<link[^>]+rel=["\']canonical["\'][^>]+href=["\']([^"\']+)', html, re.I)
+                      if not match:
+                          match = re.search(r'<link[^>]+href=["\']([^"\']+)["\'][^>]+rel=["\']canonical["\']', html, re.I)
+                      if not match:
+                          raise RuntimeError("canonical tag missing")
+                      canonical = match.group(1).strip()
+                      if canonical != url:
+                          raise RuntimeError(f"canonical mismatch: {canonical}")
+                      last_error = None
+                      break
+                  except Exception as exc:
+                      last_error = str(exc)
+                      time.sleep(5 * (attempt + 1))
+              if last_error:
+                  failures.append(f"{url} :: {last_error}")
+              if index % 10 == 0:
+                  print(f"Checked {index}/{len(urls)} sitemap URLs")
+
+          required = {
+              root + "mastering-cryptocurrency-trading/": "https://books2read.com/u/m26Ngr",
+              root + "mastering-the-crypto-market/": "https://books2read.com/u/3kDX8W",
+              root + "mediterranean-diet-recipes-book/": "https://books2read.com/u/4jo1Xo",
+          }
+          for url, retailer in required.items():
+              try:
+                  req = urllib.request.Request(url, headers=headers)
+                  with urllib.request.urlopen(req, timeout=20) as response:
+                      html = response.read().decode("utf-8", "replace")
+                  if retailer not in html:
+                      failures.append(f"{url} :: approved retailer destination missing")
+              except Exception as exc:
+                  failures.append(f"{url} :: overview verification failed: {exc}")
+
+          print(f"Sitemap URLs checked: {len(urls)}")
+          print(f"Failures: {len(failures)}")
+          if failures:
+              print("\n".join(failures))
+              sys.exit(1)
+          print("PASS: all sitemap pages returned HTTP 200 with matching canonical URLs; all three approved book destinations are present.")
+          PY

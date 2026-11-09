@@ -35,3 +35,11 @@ Use the actual book/retailer description as the source of truth. Crypto content 
 - Per-link book sales are not attributable through the universal links. Draft2Digital's sales/royalty dashboard remains the source of truth; a CEO export is needed to prioritize by observed sales.
 - Paperback store links for the two crypto titles remain unconfirmed; Books2Read currently presents ebook options. Do not invent paperback links.
 - Do not link the book hub from Quickwell; the hub remains a separate brand.
+
+## Revenue and growth operations
+
+- [Books Revenue & Discovery Engine](growth/BOOK_REVENUE_ENGINE.md) defines the content funnel, editorial gates, discovery, attribution limits, KPI definitions and operating cadence.
+- `.github/workflows/books-hub-health.yml` checks sitemap URLs, HTTP 200 responses, canonical consistency and the three approved retailer destinations weekly and on relevant production changes.
+- The Supabase `public.crypto_books_seo_matrix` is the search-intent planning registry, not a published-page or indexing ledger. On 2026-11-09 it contained 355 unique slugs; 108 new targets were added for the three active titles in batch `books-growth-2026-11-09-02`.
+- Publish only distinct, useful guides. Do not turn every registry row into a thin page. Search submission is not indexing; retailer clicks are not purchases; distributor statements remain the royalty source of truth.
+- Books2Read universal links do not currently provide per-link order attribution. No cookies or click tracking are enabled until a privacy-reviewed first-party measurement design is approved.
