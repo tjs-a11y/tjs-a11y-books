@@ -163,3 +163,14 @@ A target can move to indexed only after Search Console or the relevant search en
 - Monthly: retire weak/overlapping pages, improve pages with demonstrated demand, and reallocate effort toward books with verified commercial traction.
 
 The governing rule: **useful content earns discovery; a clear recommendation earns the click; only a distributor statement verifies the royalty.**
+
+
+## Implementation update — 2026-11-09
+
+- Supabase SEO intent registry: **445 unique slugs**, including 90 additional targets in batch `books-growth-2026-11-09-03` (30 per priority title). Registry targets are not publication or indexing evidence.
+- Existing content inventory: 60 individual reading-guide directories across the three priority title clusters. The current execution preserves and instruments these rather than creating duplicate thin pages.
+- Deployed Supabase Edge Function: `book-click`. It accepts only approved Books2Read destinations and records book slug, source path, CTA placement and timestamp. It does not collect names, emails, IP addresses, cookies or fingerprints. It is intentionally public for browser click events, with an exact origin allowlist and strict payload validation; CORS is not an anti-abuse boundary.
+- Database tables: `book_outbound_click_events`, `book_search_performance_daily`, and `book_royalty_statements`. RLS is enabled and direct anon/authenticated privileges are revoked. The Edge Function writes events server-side. Search Console/Bing and Draft2Digital tables await source exports.
+- Saved report: [Books Growth Performance](https://supabase.com/dashboard/project/dejplqevodwfeaemrska/explorer/notebook/34ec8a1d-3f98-4982-a076-5c821e8e034c). It reports click events, top referring pages, daily click trend, imported search aggregates and imported distributor royalties.
+- GitHub branch `growth/books-attribution-and-content-2026-11-09` adds the shared tracker to the home page, crypto and kitchen shelves, three book overviews, reading-guide hub and all 60 guide pages. It is not live until the pull request is merged and GitHub Pages publishes the change.
+- Event counts are raw CTA click events, not unique readers, retailer checkouts or orders. Bot filtering/deduplication is not yet implemented. Books2Read universal links do not expose dependable per-link sales attribution; use Draft2Digital statements for royalties.
