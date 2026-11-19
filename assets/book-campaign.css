@@ -23,15 +23,15 @@
 .device-notch{position:absolute;top:4px;left:50%;transform:translateX(-50%);width:34px;height:7px;border-radius:0 0 6px 6px;background:#080a0d;z-index:1}
 .device.ipad.landscape .device-notch{display:none}
 .mockup-caption{font-size:.77rem;line-height:1.35;text-align:center;color:#d3dce7;min-height:2.2em}
-.apple-badge{display:block;position:relative;width:166px;height:76px;overflow:hidden;flex:none;background:#fff;border-radius:4px}
-.apple-badge img{display:block;width:166px;height:auto;clip-path:inset(0 0 50% 0);object-fit:contain;object-position:top}
+.apple-badge{display:block;position:relative;width:166px;height:56px;overflow:hidden;flex:none;background:#fff;border-radius:4px}
+.apple-badge img{display:block;width:166px;height:auto;object-fit:contain;object-position:top}
 .apple-badge:focus-visible{outline:3px solid var(--mock-accent);outline-offset:4px}
 .apple-credit{font-size:.72rem;color:var(--muted);margin-top:12px}
 .holiday-gallery{margin:24px 0}
 .holiday-gallery .holiday-lede{color:var(--muted);max-width:70ch}
 .food-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:13px}
 .food-card{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:var(--surface)}
-.food-visual{aspect-ratio:4/3;background-color:#e9dfd0;background-image:var(--food-sheet);background-size:300% 500%;background-repeat:no-repeat}
+.food-visual{aspect-ratio:1/1;background-color:#e9dfd0;background-image:var(--food-image);background-size:300% 500%;background-position:var(--food-position,0% 0%);background-repeat:no-repeat}
 .food-card h3{font-size:.94rem;line-height:1.25;margin:10px 11px 4px}
 .food-card p{font-size:.78rem;color:var(--muted);margin:0 11px 12px}
 .holiday-note{font-size:.78rem;color:var(--muted);margin-top:12px}
