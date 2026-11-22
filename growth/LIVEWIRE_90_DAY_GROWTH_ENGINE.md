@@ -279,3 +279,15 @@ The existing scheduled captions often say “link in bio.” UTM parameters embe
 2. Add the platform-specific Books hub URL to Instagram and TikTok profile website fields; Metricool does not expose a profile-bio update action in the connected capability.
 3. Connect/choose an email list provider before enabling an opt-in flow.
 4. Import a current Draft2Digital royalty statement when available; never infer sales from social reach or Books2Read clicks.
+
+
+### Queue reconciliation correction — 2026-11-21, 22:05 CT
+The earlier count above (26 total / 24 future) was the intermediate readback before the final six Dec 3–5 posts were created. The final Metricool readback after all six create receipts is:
+- **32 total items** in the checked Nov 21–Dec 5 range.
+- **30 future items**, all non-draft and PENDING; **0 future drafts**.
+- Network coverage: 15 Instagram items and 16 TikTok items (one combined post appears on both).
+- Two items in the range were already PUBLISHED; the 30 future items are pending/scheduled, not live.
+- Calendar coverage now reaches **December 5, 2026**.
+
+### Automation health note — 2026-11-21, 22:05 CT
+The updated nightly growth automation remains enabled with its next scheduled run at 23:30 CT. Its last recorded scheduled run is marked FAILED with the generic result “There was a problem with your scheduled task.” The current-turn run-now action returned an inline prompt, not a confirmed background completion; the distribution and repository actions documented here were executed directly in this conversation. Do not represent the failed scheduled run as successful. Investigate its next run and continue independent work if it fails again.
