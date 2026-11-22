@@ -291,3 +291,11 @@ The earlier count above (26 total / 24 future) was the intermediate readback bef
 
 ### Automation health note — 2026-11-21, 22:05 CT
 The updated nightly growth automation remains enabled with its next scheduled run at 23:30 CT. Its last recorded scheduled run is marked FAILED with the generic result “There was a problem with your scheduled task.” The current-turn run-now action returned an inline prompt, not a confirmed background completion; the distribution and repository actions documented here were executed directly in this conversation. Do not represent the failed scheduled run as successful. Investigate its next run and continue independent work if it fails again.
+
+
+### Final daily cadence fill — 2026-11-21, 22:05 CT
+Added the missing Instagram book post for 2026-11-29 at 10:00 CT (Mastering the Crypto Market, cover image, unique caption and UTM campaign). Final Metricool readback now verifies:
+- **33 total items** in Nov 21–Dec 5.
+- **31 future items** across every date Nov 22–Dec 5.
+- **16 Instagram + 16 TikTok network placements** (one combined IG/TikTok post is counted in both networks).
+- **0 drafts**, **0 non-auto-publishing future posts**, and all 31 future items returned PENDING.
