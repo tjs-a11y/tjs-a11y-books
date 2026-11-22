@@ -246,3 +246,6 @@ Use these platform-specific profile URLs once the browser tracker PR is merged:
 - TikTok bio: https://tjs-a11y.github.io/tjs-a11y-books/?utm_source=tiktok&utm_medium=organic_social&utm_campaign=livewire_books_bio
 
 The existing scheduled captions often say “link in bio.” UTM parameters embedded in a caption are not proof that a visitor clicked that URL. The profile bio destination itself must carry the platform UTM values. Updating profile bio links is not available through the current Metricool actions, so the owner must paste these URLs into the two profile website fields. This will provide platform-level attribution; post-level attribution requires a post-specific link destination or a platform-supported clickable link.
+
+
+**Queue-status detail:** the Metricool response includes some TikTok items marked `draft: true` and `autoPublish: false`. They are drafts, not confirmed scheduled posts. Only count items as scheduled when the returned post is non-draft and has an automatic publication state (or a confirmed manual-publication workflow).
