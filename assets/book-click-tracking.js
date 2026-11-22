@@ -11,6 +11,20 @@
     "mastering-the-crypto-market": "books2read_mcm",
     "mediterranean-diet-recipes-book": "books2read_mdr"
   };
+  const utm = new URLSearchParams(location.search);
+  const cleanUtm = (key, max = 120) => {
+    const value = utm.get(key);
+    if (!value) return undefined;
+    const clean = value.trim();
+    return /^[a-zA-Z0-9._-]+$/.test(clean) ? clean.slice(0, max) : undefined;
+  };
+  const attribution = {
+    utm_source: cleanUtm("utm_source", 40),
+    utm_medium: cleanUtm("utm_medium", 40),
+    utm_campaign: cleanUtm("utm_campaign"),
+    utm_content: cleanUtm("utm_content"),
+    utm_term: cleanUtm("utm_term")
+  };
   document.addEventListener("click", (event) => {
     const anchor = event.target && event.target.closest ? event.target.closest("a[href]") : null;
     if (!anchor) return;
@@ -26,7 +40,7 @@
     else if (anchor.closest("footer")) placement = "footer";
     else if (anchor.classList.contains("btn")) placement = "book_overview_hero";
     else if (/\/tjs-a11y-books\/?$/.test(path) || path === "/") placement = "home_featured";
-    const payload = JSON.stringify({ book_slug: book, source_path: path, placement });
+    const payload = JSON.stringify({ book_slug: book, source_path: path, placement, ...attribution });
     try {
       if (navigator.sendBeacon) {
         navigator.sendBeacon(endpoint, new Blob([payload], { type: "text/plain;charset=UTF-8" }));
