@@ -234,3 +234,15 @@ Always report **zero** only when the source was checked and returned zero. Repor
 - Deployed the existing `book-click` Edge Function as version 5. It now accepts optional, allowlisted-format UTM values and writes them into the existing `monad_attribution_events` source, medium, campaign, content and term columns. No database schema change was required.
 - The matching browser-side change is proposed in [PR #11](https://github.com/tjs-a11y/tjs-a11y-books/pull/11). It reads UTM values from the social landing URL and includes them when a reader clicks a Books2Read CTA. The script passed `node --check`.
 - Until PR #11 is merged and a real UTM-tagged browser click is recorded, platform attribution remains **not yet verified**. No synthetic click was inserted into production data.
+
+
+## Bio-link routing — required setup
+
+Metricool returned no SmartLink rows for the checked 2026-11-19 through 2026-11-21 period, so a measurable link-in-bio destination is not confirmed. The existing books hub already presents the three active titles and can serve as the landing page; no new site or domain is required.
+
+Use these platform-specific profile URLs once the browser tracker PR is merged:
+
+- Instagram bio: https://tjs-a11y.github.io/tjs-a11y-books/?utm_source=instagram&utm_medium=organic_social&utm_campaign=livewire_books_bio
+- TikTok bio: https://tjs-a11y.github.io/tjs-a11y-books/?utm_source=tiktok&utm_medium=organic_social&utm_campaign=livewire_books_bio
+
+The existing scheduled captions often say “link in bio.” UTM parameters embedded in a caption are not proof that a visitor clicked that URL. The profile bio destination itself must carry the platform UTM values. Updating profile bio links is not available through the current Metricool actions, so the owner must paste these URLs into the two profile website fields. This will provide platform-level attribution; post-level attribution requires a post-specific link destination or a platform-supported clickable link.
