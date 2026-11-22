@@ -225,3 +225,12 @@ Always report **zero** only when the source was checked and returned zero. Repor
 7. The current Metricool queue had no YouTube posts in the checked 2026-11-21 to 2026-11-28 range; confirm the separate fiction-series publishing workflow before filling any gap.
 
 **Governing rule:** content earns attention; a relevant destination earns intent; only a verified transaction or distributor statement proves revenue.
+
+
+## Instrumentation work started — 2026-11-21
+
+- Saved and executed the [LiveWire Books Growth Scoreboard](https://supabase.com/dashboard/project/dejplqevodwfeaemrska/explorer/notebook/4fd1181f-d875-4b1a-bab9-dedbb9e316f6). Its read-only queries currently return 0 book CTA events, 0 royalty statement rows and 9 search-performance rows.
+- Saved and executed the [LiveWire Social Attribution](https://supabase.com/dashboard/project/dejplqevodwfeaemrska/explorer/notebook/7b669787-bac8-43c9-9e3d-1bbf96f395c3). Its UTM breakdown queries are valid and currently return no rows.
+- Deployed the existing `book-click` Edge Function as version 5. It now accepts optional, allowlisted-format UTM values and writes them into the existing `monad_attribution_events` source, medium, campaign, content and term columns. No database schema change was required.
+- The matching browser-side change is proposed in [PR #11](https://github.com/tjs-a11y/tjs-a11y-books/pull/11). It reads UTM values from the social landing URL and includes them when a reader clicks a Books2Read CTA. The script passed `node --check`.
+- Until PR #11 is merged and a real UTM-tagged browser click is recorded, platform attribution remains **not yet verified**. No synthetic click was inserted into production data.
