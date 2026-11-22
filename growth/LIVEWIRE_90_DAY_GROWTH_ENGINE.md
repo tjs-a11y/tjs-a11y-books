@@ -249,3 +249,33 @@ The existing scheduled captions often say “link in bio.” UTM parameters embe
 
 
 **Queue-status detail:** the Metricool response includes some TikTok items marked `draft: true` and `autoPublish: false`. They are drafts, not confirmed scheduled posts. Only count items as scheduled when the returned post is non-draft and has an automatic publication state (or a confirmed manual-publication workflow).
+
+
+## Execution log — 2026-11-21, 22:04 America/Chicago
+
+### Distribution queue actions
+- Reconciled Metricool brand 8235623 for 2026-11-21 through 2026-12-05.
+- Converted 8 future ready drafts to automatic scheduled posts; each returned a new pending Metricool receipt and planner URL.
+- Recovered one overdue combined Instagram/TikTok Quickwell Shield draft by moving it to 2026-11-23 at 19:00 CT; both network receipts returned PENDING.
+- Added six new book-cover image posts, three per channel, for 2026-12-03 through 2026-12-05 at 10:00 CT. Each uses a title-specific overview URL with platform-specific UTM values and the corresponding Books2Read retailer choice.
+- Final Metricool readback: 26 total items in the checked range; 24 future items from 2026-11-22 through 2026-12-05, all non-draft and PENDING; 0 future drafts. Two earlier items in the range were already PUBLISHED. PENDING is scheduled, not published.
+- New post receipts: Instagram 2026-12-03/04/05 and TikTok 2026-12-03/04/05; Metricool returned post IDs and planner URLs. The combined Shield post is scheduled for 2026-11-23 19:00 CT.
+- No paid ads, credits, or new paid services used.
+
+### Attribution and site status
+- PR #11, “Capture social UTM attribution for book clicks,” is merged (merge commit 082b244716140fba0e2cf14d28755d280ea6920c).
+- Production-health check for that merge completed successfully. The subsequent GitHub Pages deployment run 44982977968 completed successfully on main commit 09658423a62650ee4a4c1d830fa5addde12bbe14.
+- Supabase read-only query for the preceding 90 days returned no book outbound-click rows and no royalty statement rows at the time of the check. This is an instrumentation/statement baseline, not evidence of no readers or no sales.
+- Do not insert synthetic production clicks. Wait for a genuine click from a UTM-tagged social or bio link, then verify the event and source/medium/campaign/content fields.
+- The three existing book overview pages contain canonical metadata, book structured data, cover assets and Books2Read destinations. Their source files were retrieved from main; live web retrieval through the browser tool was unavailable in this run. GitHub Pages deployment/production-health checks are the available deployment evidence.
+- No email signup/list provider or consent-based opt-in flow is confirmed. Do not collect reader emails until a provider, consent text, privacy notice, delivery and unsubscribe path are configured.
+
+### Operating automation
+- Updated the existing enabled MONAD nightly growth/acquisition automation with the LiveWire 90-day operating requirements; did not create a duplicate automation.
+- Ran the automation now. The task platform returned an inline execution prompt for this conversation; distribution and measurement actions above were executed here. The regular nightly run remains enabled for 23:30 CT.
+
+### Next actions
+1. Confirm the first real UTM-tagged CTA event arrives after the Pages deployment.
+2. Add the platform-specific Books hub URL to Instagram and TikTok profile website fields; Metricool does not expose a profile-bio update action in the connected capability.
+3. Connect/choose an email list provider before enabling an opt-in flow.
+4. Import a current Draft2Digital royalty statement when available; never infer sales from social reach or Books2Read clicks.
