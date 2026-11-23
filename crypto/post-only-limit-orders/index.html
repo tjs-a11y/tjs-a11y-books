@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What Does Post-Only Mean in Crypto Trading? | LiveWire Money</title>
+<meta name="description" content="Learn how Coinbase Advanced handles post-only limit orders, immediate matches, rejected orders and maker/taker fee treatment.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://tjs-a11y.github.io/tjs-a11y-books/crypto/post-only-limit-orders/">
+<meta name="color-scheme" content="light dark">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="LiveWire Money">
+<meta property="og:title" content="What Does Post-Only Mean in Crypto Trading?">
+<meta property="og:description" content="Learn how Coinbase Advanced handles post-only limit orders, immediate matches, rejected orders and maker/taker fee treatment.">
+<meta property="og:url" content="https://tjs-a11y.github.io/tjs-a11y-books/crypto/post-only-limit-orders/">
+<meta property="og:image" content="https://books2read-prod.s3.amazonaws.com/ubl_book_images/book_display_image_V5Cki6v">
+<meta property="og:image:alt" content="Cover of Mastering Cryptocurrency Trading by LiveWire Money">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="What Does Post-Only Mean in Crypto Trading?">
+<meta name="twitter:description" content="Learn how Coinbase Advanced handles post-only limit orders, immediate matches, rejected orders and maker/taker fee treatment.">
+<meta name="twitter:image" content="https://books2read-prod.s3.amazonaws.com/ubl_book_images/book_display_image_V5Cki6v">
+<meta name="twitter:image:alt" content="Cover of Mastering Cryptocurrency Trading by LiveWire Money">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "What Does Post-Only Mean in Crypto Trading?",
+  "description": "Learn how Coinbase Advanced handles post-only limit orders, immediate matches, rejected orders and maker/taker fee treatment.",
+  "datePublished": "2026-11-20",
+  "dateModified": "2026-11-23",
+  "author": {"@type": "Organization", "name": "LiveWire Money"},
+  "publisher": {"@type": "Organization", "name": "LiveWire Money"},
+  "image": "https://books2read-prod.s3.amazonaws.com/ubl_book_images/book_display_image_V5Cki6v",
+  "mainEntityOfPage": "https://tjs-a11y.github.io/tjs-a11y-books/crypto/post-only-limit-orders/"
+}
+</script>
+<style>
+:root{color-scheme:light dark;--bg:#f6f7fb;--surface:#fff;--ink:#111827;--muted:#596579;--line:#dfe5ef;--accent:#087e8b;--soft:#edf7f7}
+@media(prefers-color-scheme:dark){:root{--bg:#0d1118;--surface:#151c27;--ink:#eaf0f7;--muted:#a5b2c5;--line:#293445;--accent:#57d2dc;--soft:#162a31}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.7 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}a{color:var(--accent)}.wrap{max-width:820px;margin:auto;padding:26px 18px 56px}nav{font-size:.9rem;color:var(--muted);margin-bottom:28px}h1,h2{line-height:1.2;letter-spacing:-.02em}h1{font-size:clamp(2rem,5vw,3rem);margin:0 0 14px}h2{font-size:1.4rem;margin:30px 0 8px}.lede{font-size:1.12rem;color:var(--muted)}.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;margin:18px 0}.note{background:var(--soft);padding:14px 16px;border-radius:8px}.small{font-size:.9rem;color:var(--muted)}li{margin:.5em 0}footer{border-top:1px solid var(--line);margin-top:34px;padding-top:18px;color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><a href="https://tjs-a11y.github.io/tjs-a11y-books/">Books home</a> · <a href="https://tjs-a11y.github.io/tjs-a11y-books/crypto/">Crypto books</a> · <a href="https://tjs-a11y.github.io/tjs-a11y-books/crypto/market-limit-stop-orders/">Market, limit and stop orders</a></nav>
+<main>
+<p class="small">LIVEWIRE MONEY · PLATFORM-SPECIFIC EXPLAINER · REVIEWED 2026-11-23</p>
+<h1>What does post-only mean in crypto trading?</h1>
+<p class="lede">A post-only instruction tells a trading venue not to let a limit order execute immediately against orders already on the book. On Coinbase Advanced, an order that would immediately match is rejected when Post Only is enabled.</p>
+
+<section class="card">
+<h2>What Post Only does on Coinbase Advanced</h2>
+<p>Coinbase describes Post Only as an execution option for limit orders. When enabled, it keeps the order on the order book so that, if it is filled, it is treated as a maker order. If any part of the order would execute immediately when it reaches the matching engine, Coinbase says the entire order is rejected.</p>
+<p>This is different from an instruction that simply waits for a price. The order still needs a price and size, and it may remain unfilled if the market does not trade against it.</p>
+</section>
+
+<h2>Post Only versus Allow Taker</h2>
+<ul>
+<li><strong>Post Only:</strong> the limit order is intended to rest on the book. If any part would execute immediately, Coinbase rejects the entire order.</li>
+<li><strong>Allow Taker:</strong> the order may cross the spread and match an existing order. Coinbase says the portion that crosses the spread is charged at the taker fee rate.</li>
+<li><strong>Neither setting guarantees a fill:</strong> an order can remain open, be rejected, expire or be cancelled according to the platform's rules.</li>
+</ul>
+<p>The spread is the difference between the best available bid and ask. If a buy limit price reaches the available ask, it may be immediately marketable; if Post Only is enabled, that immediate match can cause rejection on Coinbase Advanced.</p>
+
+<h2>A simple hypothetical example</h2>
+<p>Imagine an order book with a best bid of $100 and a best ask of $101. A buy limit order at $101 could immediately match an available sell order at that price. With Post Only enabled on Coinbase Advanced, the order would be rejected rather than taking the available ask. A buy limit at $100 might rest at the bid instead, but it is not guaranteed to fill. These prices are illustrative only, not a market quote or trading suggestion.</p>
+
+<h2>What to check before using the setting</h2>
+<ul>
+<li>Does the venue offer Post Only for the asset and trading pair you are viewing?</li>
+<li>Does a marketable post-only order get rejected, repriced or handled another way?</li>
+<li>What maker and taker fees apply to your account and region?</li>
+<li>Can a limit order be partially filled, and what happens to the unfilled remainder?</li>
+<li>What time-in-force setting controls how long the order stays open?</li>
+</ul>
+<p>Order names and fee rules are not universal. Coinbase's documentation describes Coinbase Advanced; other exchanges and brokers may implement similar labels differently. Read the current documentation for the venue you actually use.</p>
+
+<section class="card">
+<h2>Further reading</h2>
+<p>For a broader introduction, see <a href="https://tjs-a11y.github.io/tjs-a11y-books/crypto/market-limit-stop-orders/">Market, Limit and Stop Orders Explained</a>. The book <em>Mastering Cryptocurrency Trading</em> covers order types, liquidity, price setting and other trading concepts.</p>
+<p><a href="https://books2read.com/u/m26Ngr?utm_source=books_hub&amp;utm_medium=referral&amp;utm_campaign=post_only_guide_20261120&amp;utm_content=mct_cta" rel="noopener">Explore Mastering Cryptocurrency Trading at Books2Read</a></p>
+</section>
+
+<p class="note"><strong>Educational, not financial advice.</strong> This page explains one platform's order-setting documentation. It does not recommend a trade, asset, platform or strategy. Crypto assets can be volatile and you can lose money.</p>
+
+<h2>Sources</h2>
+<ul>
+<li><a href="https://help.coinbase.com/en/coinbase/trading-and-funding/advanced-trade/order-types" rel="noopener">Coinbase Help Center — Advanced trade order types</a>. Publisher: Coinbase. Scope/jurisdiction: Coinbase Advanced product documentation; supported features and availability can vary by region. Publication or update date: not displayed on the page. Retrieved 2026-11-23. Supports the descriptions of Post Only, Allow Taker, immediate matching and maker/taker fee treatment.</li>
+<li><a href="https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-14" rel="noopener">U.S. Securities and Exchange Commission, Investor.gov — Understanding Order Types</a>. Publisher: SEC Office of Investor Education and Assistance. Jurisdiction: U.S. securities-market investor education; this source is not crypto-exchange guidance. Originally published 2017-07-12; updated 2026-08-18. Retrieved 2026-11-20. Supports the general explanation that limit orders set a price condition but are not guaranteed to execute.</li>
+</ul>
+</main>
+<footer><a href="https://tjs-a11y.github.io/tjs-a11y-books/crypto/guides/">Browse crypto topic guides</a> · <a href="https://tjs-a11y.github.io/tjs-a11y-books/mastering-cryptocurrency-trading/">Read the book overview</a></footer>
+</div>
+<script defer src="../../assets/book-click-tracking.js"></script>
+</body>
+</html>
